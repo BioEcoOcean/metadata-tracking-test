@@ -1,6 +1,5 @@
 name: Contribute BioEco metadata
-description: This form is designed for users to easily record, document, and update metdata about BioEco ocean observing projects.
-Metadata recorded here will flow to the GOOS BioEco Portal and ODIS.
+description: This form is designed for users to easily record, document, and update metdata about BioEco ocean observing projects. Metadata recorded here will flow to the GOOS BioEco Portal and ODIS.
 title: '[Add new BioEco metadata record]: '
 assignees:
 - EliLawrence
@@ -19,7 +18,7 @@ body:
 - type: input
   id: project-url
   attributes:
-    label: What is URL that links to project?
+    label: What is the URL that links to project?
     description: A complete URL that leads to a page describing the project
     placeholder: https://bioecoocean.org/
   validations:
@@ -27,85 +26,94 @@ body:
 - type: input
   id: contact
   attributes:
-    label: Contact Details
-    description: How can someone get in touch with you if more info is needed?
+    label: Point of Contact
+    description: Who is the best person (or organization) that someone can get in touch with if more info is needed?
     placeholder: ex. email@example.com
   validations:
-    required: false
+    required: true
 - type: textarea
   id: data-why
   attributes:
-    label: Tell us a bit about the data/resource!
-    description: Why you think this data worth to be put into the CEFI resource list?
-    placeholder: A short sentence or paragraph on why you think the data/resource
-      is important.
+    label: Briefly describe the purposes and/or goals of the project.
+    description: This description can be provided as an abstract.
+    placeholder: A short abstract describing the project's purpose, goals, taxonomic and temporal extent,
   validations:
     required: false
-- type: textarea
-  id: data-figure
+- type: dropdown
+  id: license
   attributes:
-    label: Provide a representative figure that relates to the data/resource!
-    description: What figure best summarize the data/resource?
-    placeholder: A short name for the figure (aspect ratio of 16:9 is prefered) and
-      please attach the figure here.
-  validations:
-    required: false
+    label: License
+    description: Please select which license you expect the metadata and data to be made available.
+    multiple: false
+    options:
+    - 0-CC0
+    - 1-CC-BY
+    - 2-CC-BY-NC
+    - 3-Something more restrictive
+
 - type: markdown
   attributes:
-    value: '# CEFI data/resource categories'
+    value: '# BioEco data/pre-data collection metadata'
 - type: markdown
   attributes:
     value: '---'
 - type: markdown
   attributes:
-    value: Below are dropdowns with multiple choices available in each dropdown.
+    value: This section is for recording the project's goals *before* data collection occurs. For each category, there are dropdowns with multiple choices available. You may select all that apply.
 - type: markdown
   attributes:
-    value: Please select all options that the CEFI data/resource provides (if nothing
-      fits, please select "Any").
+    value: If no options fit, please select "Any").
 - type: dropdown
-  id: cdata
+  id: eovs_pre
   attributes:
-    label: Dataset
+    label: BioEco Essential Ocean Variable (EOV)
+    description: Select the EOVs that the project aims to measure.
     multiple: true
     options:
-    - 0-Any
-    - 1-ICOADS
-    - 2-CMIP5
-    - 3-CMIP6
-    - 4-NOAA GODAS
-    - 5-CMIP3
-    - 6-TAO Array
-    - 7-AMIPS
-    - 8-ARGO Floats
-    - 9-NOAA ERSST V5
-    - 10-North American Multi-Model Ensemble (NMME)
-    - 11-Alaska Climate Integrated Modeling (ACLIM data)
-    - 12-NOAA OI SST
-    - 13-Coupled Models
-    - 14-GLORYS
+    - 0-None
+    - 1-Phytoplankton biomass and diversity
+    - 2-Zooplankton biomass and diversity
+    - 3-Fish abundance and distribution
+    - 4-Marine turtles, birds, mammals abundance and distribution
+    - 5-Marine birds abundance and distribution
+    - 6-Marine mammals abundance and distribution
+    - 7-Hard coral cover and composition
+    - 8-Seagrass cover and composition
+    - 9-Macroalgal canopy cover and composition
+    - 10-Mangrove cover and composition
+    - 11-Microbe biomass and diversity
+    - 12-Invertebrate abundance and distribution
   validations:
     required: true
-- type: dropdown
-  id: ctime
+- type: input
+  id: sops_pre
   attributes:
-    label: Time Scale
-    multiple: true
-    options:
-    - 0-Any
-    - 1-Sub Daily
-    - 2-Daily
-    - 3-Pentad
-    - 4-Weekly
-    - 5-Monthly
-    - 6-Seasonal
-    - 7-Annual
-    - 8-Decadal
-    - 9-Century
+    label: Standard Operating Procedures (SOPs)
+    description: Please describe and link to SOPs that will be used to measure the EOVs. 
   validations:
     required: true
+- type: input
+  id: start_date_pre
+  attributes:
+    label: Start Date of Temporal Coverage
+    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+    validation:
+      required: true
+      regex: "^(\\d{4})-(\\d{2})-(\\d{2})$"
+      error: "Please enter the date in the format YYYY-MM-DD"
+- type: input
+  id: end_date_pre
+  attributes:
+    label: End Date of Temporal Coverage
+    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+    validation:
+      required: true
+      regex: "^(\\d{4})-(\\d{2})-(\\d{2})$"
+      error: "Please enter the date in the format YYYY-MM-DD"
 - type: dropdown
-  id: cvar
+  id: cvar_pre
   attributes:
     label: Which variables does this project aim to measure? Select all that apply.
     multiple: true
@@ -216,7 +224,7 @@ body:
   validations:
     required: true
 - type: dropdown
-  id: cplatforms
+  id: cplatforms_pre
   attributes:
     label: What types of Observing Platforms will be used in the project? Select all that apply.
     multiple: true
@@ -240,65 +248,213 @@ body:
   validations:
     required: true
 - type: dropdown
-  id: cregions
+  id: cregions_pre
   attributes:
-    label: Which regions will be sampled during the project? Select all that apply.
+    label: Which region(s) were sampled during the project? Select all that apply.
+    multiple: true
+    options:
+    - 0-Global
+    - 1-Arctic Ocean
+    - 2-Atlantic Ocean
+    - 3-Baltic Sea
+    - 4-High seas
+    - 5-Indian Ocean
+    - 6-Mediterranean Sea
+    - 7-Pacific Ocean
+    - 8-Southern Africa
+    - 9-Southern Ocean
+  validations:
+    required: true
+
+- type: markdown
+  attributes:
+    value: '# BioEco data/post-data collection metadata'
+- type: markdown
+  attributes:
+    value: '---'
+- type: markdown
+  attributes:
+    value: This section is for recording the project's goals *after* data collection occurs. For each category, there are dropdowns with multiple choices available. You may select all that apply.
+- type: markdown
+  attributes:
+    value: If no options fit, please select "Any").
+- type: dropdown
+  id: eovs_post
+  attributes:
+    label: BioEco Essential Ocean Variable (EOV)
+    description: Select the EOVs that the project measured.
+    multiple: true
+    options:
+    - 0-None
+    - 1-Phytoplankton biomass and diversity
+    - 2-Zooplankton biomass and diversity
+    - 3-Fish abundance and distribution
+    - 4-Marine turtles, birds, mammals abundance and distribution
+    - 5-Marine birds abundance and distribution
+    - 6-Marine mammals abundance and distribution
+    - 7-Hard coral cover and composition
+    - 8-Seagrass cover and composition
+    - 9-Macroalgal canopy cover and composition
+    - 10-Mangrove cover and composition
+    - 11-Microbe biomass and diversity
+    - 12-Invertebrate abundance and distribution
+  validations:
+    required: true
+- type: input
+  id: sops_pre
+  attributes:
+    label: Standard Operating Procedures (SOPs)
+    description: Please describe and link to SOPs that will be used to measure the EOVs. 
+  validations:
+    required: true
+- type: input
+  id: start_date_post
+  attributes:
+    label: Start Date of Temporal Coverage.
+    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+    validation:
+      required: false
+      regex: "^(\\d{4})-(\\d{2})-(\\d{2})$"
+      error: "Please enter the date in the format YYYY-MM-DD"
+- type: input
+  id: end_date_post
+  attributes:
+    label: End Date of Temporal Coverage
+    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+    validation:
+      required: false
+      regex: "^(\\d{4})-(\\d{2})-(\\d{2})$"
+      error: "Please enter the date in the format YYYY-MM-DD"
+- type: dropdown
+  id: cvar_post
+  attributes:
+    label: Which variables did the project measure? Select all that apply.
     multiple: true
     options:
     - 0-Any
-    - 1-Atlantic Ocean
-    - 2-Pacific Ocean
-    - 3-Indian Ocean
-    - 4-Arctic Ocean
-    - 5-Bering Sea
-    - '6-US: Coastal'
-    - 7-California
-    - 8-Oregon
-    - 9-Washington
-    - 10-Maine
-    - 11-Florida
-    - '12-US: East Coast'
-    - 13-LMEs
-    - 14-Hawaii
-    - 15-Global
-    - 16-Northern Hemisphere
-    - 17-Alaska
-    - '18-US: West Coast'
-    - 19-Louisiana
-    - '20-US: CONUS'
-    - 21-Pacific Islands
+    - 1-Sea Surface Temperature (SST)
+    - 2-Sea Level Height
+    - 3-Sea Level Pressure (SLP)
+    - 4-Surface Pressure
+    - 5-Currents
+    - 6-Salinity
+    - 7-Heat Fluxes
+    - 8-Tidal
+    - 9-Chlorphyll
+    - 10-Mixed Layer Depth
+    - 11-Waves
+    - 12-Precipitation
+    - 13-Sea-Ice
+    - 14-Fish
+    - 15-Wind Stress
+    - 16-Evaporation
+    - 17-Potential Temperature
+    - 18-OLR
+    - 19-Upwelling Indices
+    - 20-Surface Temperature
+    - 21-20C Isotherm
+    - 22-Surface Winds
+    - 23-Kelp and Seagrasses
+    - 24-Algal Blooms
+    - 25-Carbon
+    - 26-Bathymetry
+    - 27-Zooplankton
+    - 28-Phytoplankton
+    - 29-Oxygen
+    - 30-Nitrates
+    - 31-Bottom Temperature
+    - 32-Clouds
+    - 33-Heat Content
+    - 34-DNA
+    - 35-Density
+    - 36-Coral
+    - 37-Sea Mammals
+    - 38-Atmosphere Variables
+    - 39-Ocean Surface Variables
+    - 40-Subsurface Ocean Variables
+    - 41-Chemical Variables
+    - 42-Marine Animal Variables
+    - 43-Fish
+    - 44-Marine Plant Variables
   validations:
     required: true
 - type: dropdown
-  id: corgs
+  id: cproduct_post
   attributes:
-    label: Organizations
+    label: Product Types
     multiple: true
     options:
     - 0-Any
-    - 1-NOAA PSL
-    - 2-NOAA PMEL
-    - 3-NOAA AOML
-    - 4-NOAA NOS
-    - 5-NOAA NESDIS
-    - 6-NOAA NCEI
-    - 7-NCAR/UCAR
-    - 8-U Hawaii
-    - '9-UCSD: University of California at San Diego'
-    - 10-NASA
-    - 11-NOAA IRI
-    - '12-NOAA: Center for Operational Oceanographic Products and Services'
-    - 13-NOAA Data
-    - 14-NOAA Fisheries
-    - '15-IOOS: Integrated Ocean Observing System'
-    - 16-NOAA CPC
-    - 17-NOAA Tides and Currents
-    - 18-Other
-    - 19-NOAA Integrated Ecosystem Assessment
-    - 20-NOAA Coastwatch
-    - 21-NOAA GFDL
-    - 22-NOAA Exploration
-    - 23-NOAA (Any)
-    - '24-AOOS: Alaska Ocean Observing System'
+    - 1-Values Current
+    - 2-Values Historic
+    - 3-Reanalysis
+    - 4-Gridded Analysis
+    - 5-Interactive Plotting Pages
+    - 6-Forecasts
+    - 7-Stations
+    - 8-Animations
+    - 9-In-situ
+    - 10-Remote Sensing
+    - 11-Data Guides/Repositories
+    - 12-Code Repository
+    - 13-Index Time-series
+    - 14-Image/Animation Repository
+    - 15-Educational
+    - 16-International Data Repositories
+    - 17-Analysis Tools
+    - 18-ERDDAP Installations
+    - 19-Reports
   validations:
     required: true
+- type: dropdown
+  id: cplatforms_post
+  attributes:
+    label: Which types of Observing Platforms were used in the project? Select all that apply.
+    multiple: true
+    options:
+    - 0-Any
+    - 1-Buoy
+    - 2-Platform
+    - 3-Ship
+    - 4-Airplane
+    - 5-Satellite
+    - 6-Floats
+    - 7-CTDs
+    - 8-Saildrone
+    - 9-Drones
+    - 10-Gliders
+    - 11-Radar
+    - 12-River Gauge
+    - 13-Stations
+    - 14-Surface Drifters
+    - 15-Wave Gliders
+  validations:
+    required: true
+- type: dropdown
+  id: cregions_post
+  attributes:
+    label: Which region(s) were sampled during the project? Select all that apply.
+    multiple: true
+    options:
+    - 0-Global
+    - 1-Arctic Ocean
+    - 2-Atlantic Ocean
+    - 3-Baltic Sea
+    - 4-High seas
+    - 5-Indian Ocean
+    - 6-Mediterranean Sea
+    - 7-Pacific Ocean
+    - 8-Southern Africa
+    - 9-Southern Ocean
+  validations:
+    required: true
+- type: input
+  id: output-url
+  attributes:
+    label: URLs for project outputs
+    description: A list of complete URL(s) that leads to a page describing an output, e.g. dataset published to OBIS
+    placeholder: http://ipt.iobis.org/obiscanada/resource?r=nuseds
+  validations:
+    required: false
