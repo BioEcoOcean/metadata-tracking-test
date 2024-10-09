@@ -98,7 +98,7 @@ body:
     label: Start Date of Temporal Coverage
     description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
     placeholder: "YYYY-MM-DD"
-    validations:
+  validations:
       required: true
 - type: input
   id: end_date_pre
@@ -106,7 +106,7 @@ body:
     label: End Date of Temporal Coverage
     description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
     placeholder: "YYYY-MM-DD"
-    validations:
+  validations:
       required: true
 - type: dropdown
   id: cvar_pre
@@ -309,7 +309,7 @@ body:
     label: Start Date of Temporal Coverage.
     description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
     placeholder: "YYYY-MM-DD"
-    validations:
+  validations:
       required: false
 - type: input
   id: end_date_post
@@ -317,7 +317,7 @@ body:
     label: End Date of Temporal Coverage
     description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
     placeholder: "YYYY-MM-DD"
-    validations:
+  validations:
       required: false
 - type: dropdown
   id: cvar_post
