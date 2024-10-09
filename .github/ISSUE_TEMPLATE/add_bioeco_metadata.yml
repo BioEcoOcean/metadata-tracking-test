@@ -98,7 +98,7 @@ body:
     label: Start Date of Temporal Coverage
     description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
     placeholder: "YYYY-MM-DD"
-    validation:
+    validations:
       required: true
       regex: "^(\\d{4})-(\\d{2})-(\\d{2})$"
       error: "Please enter the date in the format YYYY-MM-DD"
@@ -108,7 +108,7 @@ body:
     label: End Date of Temporal Coverage
     description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
     placeholder: "YYYY-MM-DD"
-    validation:
+    validations:
       required: true
       regex: "^(\\d{4})-(\\d{2})-(\\d{2})$"
       error: "Please enter the date in the format YYYY-MM-DD"
