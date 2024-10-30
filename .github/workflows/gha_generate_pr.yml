@@ -42,11 +42,11 @@ jobs:
           body: |
             A new resource that is contributed by the user through issue submission. It has triggered a GitHub Action workflow that generate this PR. Refer to issue #${{ github.event.issue.number }}.
             This PR includes the following changes 
-            1. Edit the data/cefi_list.json file with new resource at the bottom of the 'lists'
+            1. Edit the data/bioeco_list.json file with new resource at the bottom of the 'lists'
             2. Download the image that is uploaded in the issue
             3. Rerun generate_readme.py to produced the newest README.md that include the new resource
             Merging this PR will close #${{ github.event.issue.number }}.
           delete-branch: true
           labels: new resource
-          assignees: chiaweh2
-          reviewers: chiaweh2
+          assignees: EliLawrence
+          reviewers: EliLawrence

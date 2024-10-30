@@ -6,7 +6,7 @@ database
 import os
 import json
 import requests
-from generate_readme import get_cefi_list
+from generate_readme import get_bioeco_list
 from generate_pr_from_issue import parse_issue, check_link_availability
 
 
@@ -26,16 +26,16 @@ def check_duplicate_url(new_url):
     """
 
     # get the JSON file from the provided URL
-    data = get_cefi_list()
+    data = get_bioeco_list()
 
     # linear search the list (unordered)
     new_url_list = new_url.split('/')
-    for cefi_list in data['lists']:
-        ori_url_list = cefi_list['url'].split('/')
+    for bioeco_list in data['lists']:
+        ori_url_list = bioeco_list['url'].split('/')
         if ori_url_list[2] == new_url_list[2]:
             print('Same root URL detected. Possible duplicate/overlapping resources!')
             print(f'New resource URL : {new_url}')
-            print(f'Database resource URL : {cefi_list["url"]}')
+            print(f'Database resource URL : {bioeco_list["url"]}')
             GetGitHubIssue().add_label('possible duplicate')
             # raise LookupError('Possible duplicate/overlapping resources!')
 
@@ -43,9 +43,9 @@ class GetGitHubIssue:
     """Get and Parse GitHub Issue
     """
     def __init__(self):
-        # cefi list repo location
-        self.org_name = "NOAA-CEFI-Portal"
-        self.repo_name = "CEFI-info-hub-list"
+        # bioeco metadata list repo location
+        self.org_name = "BioEcoOcean"
+        self.repo_name = "metadata-tracking-dev"
 
     def add_label(self, label):
         """add label to event triggered issue
@@ -147,14 +147,14 @@ class GetGitHubIssue:
         contents = dict_issue['issue_contents']
 
         # read source json file (data type definition)
-        cefi_data = get_cefi_list()
-        type_list = list(cefi_data['categories_definition'].keys())
+        bioeco_data = get_bioeco_list()
+        type_list = list(bioeco_data['categories_definition'].keys())
 
         # add category type of new entry
         add_dict = {}
         headings = [heading.strip() for heading in headings]
         for ctype in type_list:
-            type_name = cefi_data['categories_definition'][ctype]['name']
+            type_name = bioeco_data['categories_definition'][ctype]['name']
             if type_name in headings:
                 heading_ind = headings.index(type_name)
                 option_list = contents[heading_ind].split(',')

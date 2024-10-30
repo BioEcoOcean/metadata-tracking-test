@@ -1,10 +1,12 @@
 # Contributing to the CEFI Info-Hub Resource List
 
+*To be updated*
+
 Please ensure your pull request follow the guidelines listed below:
 
 - Search opened issue and pull request to make sure there is no duplication before making a new one.
 - Submit one pull request for one suggestion.
-- Use the format: 
+- Use the format:
 
     ```
     [NAME](LINK) - INSTITUTE : 

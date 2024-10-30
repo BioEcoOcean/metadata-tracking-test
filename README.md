@@ -1,4 +1,4 @@
-![Resource Link Checked](https://github.com/NOAA-CEFI-Portal/CEFI-info-hub-list/actions/workflows/gha_check_link_daily.yml/badge.svg)
+![Resource Link Checked](https://github.com/BioEcoOcean/metadata-tracking-dev/actions/workflows/gha_check_link_daily.yml/badge.svg)
 
 # BioEco Metadata Generator
 
@@ -26,6 +26,5 @@ The idea is to submit a new GitHub issue with the "Contribute BioEco Metadata" i
 - update the resource link check badge
 - remove links back to NOAA resources
 - investigate EML exports for the JSON files for people to upload to OBIS
-
 
 _This repo is being developed by Elizabeth Lawrence, OBIS BioEcoOcean Project Officer. Contributions and suggestions are welcome._

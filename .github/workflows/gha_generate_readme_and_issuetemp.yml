@@ -7,9 +7,9 @@ on:
        - main
      paths:
        - 'generate_issue_template.py' 
-       - '.github/ISSUE_TEMPLATE/header_file/add_cefi_resource_head.yml'
+       - '.github/ISSUE_TEMPLATE/header_file/add_bioeco_metadata_head.yml'
        - 'generate_readme.py'
-       - 'data/cefi_list.json'
+       - 'data/bioeco_list.json'
 #  schedule:
 #    - cron: "0 12 5 * *"
 

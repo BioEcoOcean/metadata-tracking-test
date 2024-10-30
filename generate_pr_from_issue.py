@@ -3,7 +3,7 @@ This is a python script designed to add a PR
 based on the created issues of adding new resources
 
 1. include the image to the image folder
-2. modified the cefi_list.json file with the new entry
+2. modified the bioeco_list.json file with the new entry
 
 """
 import os
@@ -33,12 +33,12 @@ def parse_issue(body):
     The function parse the body of the github issue
     """
     # read source json file (data type definition)
-    ori_cefi_data = generate_readme.get_cefi_list()
+    ori_bioeco_data = generate_readme.get_bioeco_list()
 
     # loop over all categories (variable is skipped at the moment)
     cat_list = []
-    for cat in ori_cefi_data['categories_definition'].keys():
-        cat_list.append(ori_cefi_data['categories_definition'][cat]['name'])
+    for cat in ori_bioeco_data['categories_definition'].keys():
+        cat_list.append(ori_bioeco_data['categories_definition'][cat]['name'])
 
     # Split the text by '\n\n' to separate paragraphs
     paragraphs = body.split('\n\n')   # original post of issue line change
@@ -60,9 +60,9 @@ def parse_issue(body):
 
 
 if __name__ == '__main__' :
-    # cefi list repo location
-    ORGNAME = "NOAA-CEFI-Portal"
-    REPO_NAME = "CEFI-info-hub-list"
+    # bioeco metadata list repo location
+    ORGNAME = "BioEcoOcean"
+    REPO_NAME = "metadata-tracking-dev"
     DEBUG = False
 
     # A token is automatically provided by GitHub Actions
@@ -94,8 +94,8 @@ if __name__ == '__main__' :
         sys.exit('Error : there might be mismatching heading and content from issue parsing.')
 
     # read source json file (data type definition)
-    cefi_data = generate_readme.get_cefi_list()
-    type_list = list(cefi_data['categories_definition'].keys())
+    bioeco_data = generate_readme.get_bioeco_list()
+    type_list = list(bioeco_data['categories_definition'].keys())
 
     # download the image file and include in the directory
     try:
@@ -132,7 +132,7 @@ if __name__ == '__main__' :
     add_dict = {}
     headings = [heading.strip() for heading in headings]
     for nt, ctype in enumerate(type_list):
-        type_name = cefi_data['categories_definition'][ctype]['name']
+        type_name = bioeco_data['categories_definition'][ctype]['name']
         if type_name in headings:
             heading_ind = headings.index(type_name)
             option_list = contents[heading_ind].split(',')
@@ -151,9 +151,9 @@ if __name__ == '__main__' :
         "thumbnail" : f"images/{img_filename}.png",	
     }
     new_entry = {**new_entry, **add_dict}
-    cefi_data['lists'].append(new_entry)
+    bioeco_data['lists'].append(new_entry)
 
     # Save the dictionary as JSON in the file
     if not DEBUG :
-        with open('data/cefi_list.json', "w", encoding="utf-8") as output_json:
-            json.dump(cefi_data, output_json, indent=4)
+        with open('data/bioeco_list.json', "w", encoding="utf-8") as output_json:
+            json.dump(bioeco_data, output_json, indent=4)

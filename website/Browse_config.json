@@ -1,9 +1,9 @@
 {
-  "general_info_text": "Browse all the CEFI Resources in one place.",
-  "general_title": "Browse all CEFI Resources",
-  "githubpage": "https://noaa-cefi-portal.github.io/CEFI-info-hub-list/browse",
+  "general_info_text": "Browse all the BioEco metadata in one place.",
+  "general_title": "Browse all BioEco metadata",
+  "githubpage": "https://bioecoocean.github.io/metadata-tracking-dev/browse",
   "google_analytics": "https://tag_url.google.co",
   "google_analytics_code": "some-code",
-  "source_file": "../data/cefi_list.json",
-  "main_title": "CEFI Resources"
+  "source_file": "../data/bioeco_list.json",
+  "main_title": "BioEco Metadata"
 }

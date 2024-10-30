@@ -7,8 +7,8 @@ import json
 import csv
 
 # Path to the input JSON file and output CSV file
-JSON_FILE = 'data/cefi_list.json'
-CSV_FILE = 'data/cefi_list.csv'
+JSON_FILE = 'data/bioeco_list.json'
+CSV_FILE = 'data/bioeco_list.csv'
 
 # Read the JSON data from the file
 with open(JSON_FILE, 'r', encoding='utf-8') as file:

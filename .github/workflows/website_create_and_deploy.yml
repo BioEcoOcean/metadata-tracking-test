@@ -26,12 +26,12 @@ jobs:
       run: |
         cd website
         python create_catalog_landing_page.py
-        # note that static images and CEFI landing page (index.html) are
+        # note that static images and landing page (index.html) are
         # already in the deploy folder.
         # for now, don't create individual drawer pages
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: website/deploy # The folder the action should deploy.
-        repository-name: NOAA-CEFI-Portal/CEFI-info-hub-list
+        repository-name: BioEcoOcean/metadata-tracking-dev
   #      token: ${{ secrets.API_TOKEN_GITHUB }}

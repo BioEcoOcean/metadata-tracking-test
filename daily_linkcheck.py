@@ -56,7 +56,7 @@ if __name__=="__main__":
     ]
 
     # Provide the path to your text file
-    file_path = './data/cefi_list.json'
+    file_path = './data/bioeco_list.json'
 
     # Call the function to find URLs in the file
     # found_urls = find_url(file_path)

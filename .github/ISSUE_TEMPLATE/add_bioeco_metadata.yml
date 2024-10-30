@@ -48,26 +48,29 @@ body:
     options:
     - 0-CC0
     - 1-CC-BY
-    - 2-CC-BY-NC
-    - 3-Something more restrictive
+    - 2-CC-BY-SA
+    - 3-CC-BY-NC
+    - 4-CC-BY-NC-SA
+    - 5-CC-BY-ND
+    - 6-CC-BY-NC-ND
 
 - type: markdown
   attributes:
-    value: '# BioEco data/pre-data collection metadata'
+    value: '# EOV data collection metadata'
 - type: markdown
   attributes:
     value: '---'
 - type: markdown
   attributes:
-    value: This section is for recording the project's goals *before* data collection occurs. For each category, there are dropdowns with multiple choices available. You may select all that apply.
+    value: This section is for recording the metadata about data collection. For each category, there are dropdowns with multiple choices available. You may select all that apply.
 - type: markdown
   attributes:
     value: If no options fit, please select "Any").
 - type: dropdown
-  id: eovs_pre
+  id: eovs
   attributes:
-    label: BioEco Essential Ocean Variable (EOV)
-    description: Select the EOVs that the project aims to measure.
+    label: BioEco EOVs
+    description: Select all relevant Biological and/or Ecosystem EOVs that the project aims to measure.
     multiple: true
     options:
     - 0-None
@@ -85,15 +88,46 @@ body:
     - 12-Invertebrate abundance and distribution
   validations:
     required: true
-- type: input
-  id: sops_pre
+- type: dropdown
+  id: eovs-other
   attributes:
-    label: Standard Operating Procedures (SOPs)
-    description: Please describe and link to SOPs that will be used to measure the EOVs. 
+    label: Other EOVs
+    description: Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary EOVs
+    multiple: true
+    options:
+    - 0-None
+    - 1-Sea state
+    - 2-Ocean surface stress
+    - 3-Sea ice
+    - 4-Sea surface height
+    - 5-Sea surface temperature
+    - 6-Subsurface temperature
+    - 7-Surface currents
+    - 8-Seagrass cover and composition
+    - 9-Subsurface currents
+    - 10-Sea surface salinity
+    - 11-Subsurface salinity
+    - 12-Ocean surface heat flux
+    - 13-Ocean bottom pressure
+    - 14-Oxygen
+    - 15-Nutrients
+    - 16-Inorganic carbon
+    - 17-Transient tracers
+    - 18-Particulate matter
+    - 19-Nitrous oxide
+    - 20-Stable carbon isotopes
+    - 21-Dissolved organic carbon
   validations:
     required: true
 - type: input
-  id: start_date_pre
+  id: sops
+  attributes:
+    label: Standard Operating Procedures (SOPs)
+    description: Please describe and/or link to SOPs that will be used to measure the EOV(s). 
+  validations:
+    required: true
+- type: input
+  id: start_date
   attributes:
     label: Start Date of Temporal Coverage
     description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
@@ -101,7 +135,7 @@ body:
   validations:
       required: true
 - type: input
-  id: end_date_pre
+  id: end_date
   attributes:
     label: End Date of Temporal Coverage
     description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
@@ -109,9 +143,54 @@ body:
   validations:
       required: true
 - type: dropdown
-  id: cvar_pre
+  id: cregions
   attributes:
-    label: Which variables does this project aim to measure? Select all that apply.
+    label: Regions
+    description: Which region(s) were sampled during the project? Select all that apply.
+    multiple: true
+    options:
+    - 0-Global
+    - 1-Arctic Ocean
+    - 2-Atlantic Ocean
+    - 3-Baltic Sea
+    - 4-High seas
+    - 5-Indian Ocean
+    - 6-Mediterranean Sea
+    - 7-Pacific Ocean
+    - 8-Southern Africa
+    - 9-Southern Ocean
+  validations:
+    required: true
+- type: dropdown
+  id: cplatforms
+  attributes:
+    label: Observing Platforms
+    description: What types of Observing Platforms will be used in the project? Select all that apply.
+    multiple: true
+    options:
+    - 0-Any
+    - 1-Buoy
+    - 2-Platform
+    - 3-Ship
+    - 4-Airplane
+    - 5-Satellite
+    - 6-Floats
+    - 7-CTDs
+    - 8-Saildrone
+    - 9-Drones
+    - 10-Gliders
+    - 11-Radar
+    - 12-River Gauge
+    - 13-Stations
+    - 14-Surface Drifters
+    - 15-Wave Gliders
+  validations:
+    required: false
+- type: dropdown
+  id: cvar
+  attributes:
+    label: Variables
+    description: What other variables does this project aim to measure? Select all that apply.
     multiple: true
     options:
     - 0-Any
@@ -162,37 +241,10 @@ body:
   validations:
     required: true
 - type: dropdown
-  id: cproduct
-  attributes:
-    label: Product Types
-    multiple: true
-    options:
-    - 0-Any
-    - '1-Values: Current'
-    - '2-Values: Historic'
-    - 3-Reanalysis
-    - 4-Gridded Analysis
-    - 5-Interactive Plotting Pages
-    - 6-Forecasts
-    - 7-Stations
-    - 8-Animations
-    - 9-In-situ
-    - 10-Remote Sensing
-    - 11-Data Guides/Repositories
-    - 12-Code Repository
-    - 13-Index Time-series
-    - 14-Image/Animation Repository
-    - 15-Educational
-    - 16-International Data Repositories
-    - 17-Analysis Tools
-    - 18-ERDDAP Installations
-    - 19-Reports
-  validations:
-    required: true
-- type: dropdown
   id: ctopics
   attributes:
     label: Topics
+    description: Select any topics that are relevant to the project.
     multiple: true
     options:
     - 0-Any
@@ -218,169 +270,17 @@ body:
     - 20-Resiliency
     - 21-Algae Blooms
   validations:
-    required: true
+    required: false
 - type: dropdown
-  id: cplatforms_pre
-  attributes:
-    label: What types of Observing Platforms will be used in the project? Select all that apply.
-    multiple: true
-    options:
-    - 0-Any
-    - 1-Buoy
-    - 2-Platform
-    - 3-Ship
-    - 4-Airplane
-    - 5-Satellite
-    - 6-Floats
-    - 7-CTDs
-    - 8-Saildrone
-    - 9-Drones
-    - 10-Gliders
-    - 11-Radar
-    - 12-River Gauge
-    - 13-Stations
-    - 14-Surface Drifters
-    - 15-Wave Gliders
-  validations:
-    required: true
-- type: dropdown
-  id: cregions_pre
-  attributes:
-    label: Which region(s) were sampled during the project? Select all that apply.
-    multiple: true
-    options:
-    - 0-Global
-    - 1-Arctic Ocean
-    - 2-Atlantic Ocean
-    - 3-Baltic Sea
-    - 4-High seas
-    - 5-Indian Ocean
-    - 6-Mediterranean Sea
-    - 7-Pacific Ocean
-    - 8-Southern Africa
-    - 9-Southern Ocean
-  validations:
-    required: true
-
-- type: markdown
-  attributes:
-    value: '# BioEco data/post-data collection metadata'
-- type: markdown
-  attributes:
-    value: '---'
-- type: markdown
-  attributes:
-    value: This section is for recording the project's goals *after* data collection occurs. For each category, there are dropdowns with multiple choices available. You may select all that apply.
-- type: markdown
-  attributes:
-    value: If no options fit, please select "Any").
-- type: dropdown
-  id: eovs_post
-  attributes:
-    label: BioEco Essential Ocean Variable (EOV)
-    description: Select the EOVs that the project measured.
-    multiple: true
-    options:
-    - 0-None
-    - 1-Phytoplankton biomass and diversity
-    - 2-Zooplankton biomass and diversity
-    - 3-Fish abundance and distribution
-    - 4-Marine turtles, birds, mammals abundance and distribution
-    - 5-Marine birds abundance and distribution
-    - 6-Marine mammals abundance and distribution
-    - 7-Hard coral cover and composition
-    - 8-Seagrass cover and composition
-    - 9-Macroalgal canopy cover and composition
-    - 10-Mangrove cover and composition
-    - 11-Microbe biomass and diversity
-    - 12-Invertebrate abundance and distribution
-  validations:
-    required: true
-- type: input
-  id: sops_post
-  attributes:
-    label: Standard Operating Procedures (SOPs)
-    description: Please describe and link to SOPs that will be used to measure the EOVs. 
-  validations:
-    required: true
-- type: input
-  id: start_date_post
-  attributes:
-    label: Start Date of Temporal Coverage.
-    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
-    placeholder: "YYYY-MM-DD"
-  validations:
-      required: false
-- type: input
-  id: end_date_post
-  attributes:
-    label: End Date of Temporal Coverage
-    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
-    placeholder: "YYYY-MM-DD"
-  validations:
-      required: false
-- type: dropdown
-  id: cvar_post
-  attributes:
-    label: Which variables did the project measure? Select all that apply.
-    multiple: true
-    options:
-    - 0-Any
-    - 1-Sea Surface Temperature (SST)
-    - 2-Sea Level Height
-    - 3-Sea Level Pressure (SLP)
-    - 4-Surface Pressure
-    - 5-Currents
-    - 6-Salinity
-    - 7-Heat Fluxes
-    - 8-Tidal
-    - 9-Chlorphyll
-    - 10-Mixed Layer Depth
-    - 11-Waves
-    - 12-Precipitation
-    - 13-Sea-Ice
-    - 14-Fish
-    - 15-Wind Stress
-    - 16-Evaporation
-    - 17-Potential Temperature
-    - 18-OLR
-    - 19-Upwelling Indices
-    - 20-Surface Temperature
-    - 21-20C Isotherm
-    - 22-Surface Winds
-    - 23-Kelp and Seagrasses
-    - 24-Algal Blooms
-    - 25-Carbon
-    - 26-Bathymetry
-    - 27-Zooplankton
-    - 28-Phytoplankton
-    - 29-Oxygen
-    - 30-Nitrates
-    - 31-Bottom Temperature
-    - 32-Clouds
-    - 33-Heat Content
-    - 34-DNA
-    - 35-Density
-    - 36-Coral
-    - 37-Sea Mammals
-    - 38-Atmosphere Variables
-    - 39-Ocean Surface Variables
-    - 40-Subsurface Ocean Variables
-    - 41-Chemical Variables
-    - 42-Marine Animal Variables
-    - 43-Fish
-    - 44-Marine Plant Variables
-  validations:
-    required: true
-- type: dropdown
-  id: cproduct_post
+  id: cproduct
   attributes:
     label: Product Types
+    description: Select any product types your observation may relate to.
     multiple: true
     options:
     - 0-Any
-    - 1-Values Current
-    - 2-Values Historic
+    - '1-Values: Current'
+    - '2-Values: Historic'
     - 3-Reanalysis
     - 4-Gridded Analysis
     - 5-Interactive Plotting Pages
@@ -399,49 +299,7 @@ body:
     - 18-ERDDAP Installations
     - 19-Reports
   validations:
-    required: true
-- type: dropdown
-  id: cplatforms_post
-  attributes:
-    label: Which types of Observing Platforms were used in the project? Select all that apply.
-    multiple: true
-    options:
-    - 0-Any
-    - 1-Buoy
-    - 2-Platform
-    - 3-Ship
-    - 4-Airplane
-    - 5-Satellite
-    - 6-Floats
-    - 7-CTDs
-    - 8-Saildrone
-    - 9-Drones
-    - 10-Gliders
-    - 11-Radar
-    - 12-River Gauge
-    - 13-Stations
-    - 14-Surface Drifters
-    - 15-Wave Gliders
-  validations:
-    required: true
-- type: dropdown
-  id: cregions_post
-  attributes:
-    label: Which region(s) were sampled during the project? Select all that apply.
-    multiple: true
-    options:
-    - 0-Global
-    - 1-Arctic Ocean
-    - 2-Atlantic Ocean
-    - 3-Baltic Sea
-    - 4-High seas
-    - 5-Indian Ocean
-    - 6-Mediterranean Sea
-    - 7-Pacific Ocean
-    - 8-Southern Africa
-    - 9-Southern Ocean
-  validations:
-    required: true
+    required: false
 - type: input
   id: output-url
   attributes:

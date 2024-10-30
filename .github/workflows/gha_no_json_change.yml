@@ -5,7 +5,7 @@ on:
      branches:
        - main
      paths-ignore:
-       - 'data/cefi_list.json'
+       - 'data/bioeco_list.json'
 
 jobs:
   checking_json:

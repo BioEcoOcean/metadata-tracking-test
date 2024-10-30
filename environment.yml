@@ -1,4 +1,4 @@
-name: cefi-info-hub
+name: metadata-tracking-dev
 channels:
   - conda-forge
 dependencies:

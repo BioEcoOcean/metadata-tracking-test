@@ -26,15 +26,15 @@ if __name__ == '__main__':
     json_file = open(org_config_file, encoding="utf-8")
     org_config = json.load(json_file)
 
-    # load the CEFI list json file
+    # load the BioEco list json file
     json_file = open(os.path.join(config_dir,org_config['source_file']), encoding="utf-8")
-    cefi_json = json.load(json_file)
+    bioeco_json = json.load(json_file)
 
-    # use CEFI list categories_definition to get tags and filter
-    cat_defs = cefi_json['categories_definition']
+    # use bioeco list categories_definition to get tags and filter
+    cat_defs = bioeco_json['categories_definition']
 
-    # use CEFI listed resources
-    resources = cefi_json['lists']
+    # use bioeco listed resources
+    resources = bioeco_json['lists']
 
     # parse the resource and store in a dictionary
     #  data title (key) : data info dictionary (value)

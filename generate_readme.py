@@ -1,5 +1,5 @@
 """
-The script is to generate the CEFI resource list README.md
+The script is to generate the BioEco resource list README.md
 
 The resource list is mirroring the https://psl.noaa.gov/data/fisheries/
 search tool which provide a quick way to view the entire list and provide 
@@ -16,60 +16,63 @@ Conda env:
 import json
 from mdutils.mdutils import MdUtils
 
-def get_cefi_list():
+def get_bioeco_list():
     """
     Read json data (soft link to the original source file)
     """
 
-    json_file = open('data/cefi_list.json', encoding="utf-8")
+    json_file = open('data/bioeco_list.json', encoding="utf-8")
 
     return json.load(json_file)
 
 if __name__ == '__main__':
 
-    data = get_cefi_list()
+    data = get_bioeco_list()
 
     # create markdown file
-    mdFile = MdUtils(file_name='README')
+    mdFile = MdUtils(file_name='README_2')
 
     # start markdown structure
-    mdFile.new_header(level=1, title='CEFI related resource list')
+    mdFile.new_header(level=1, title='BioEco resource list')
 
     mdFile.new_paragraph(
-        "This is a curated list for the 'CEFI related resource'"+
+        "This repo is a test for generating metadata JSON-LD files for BioEco EOVs within the"+
         "on the information hub created for the NOAA Climate, Ecosystems, and Fisheries Initiative ("+
         mdFile.new_inline_link(
-            link='https://www.fisheries.noaa.gov/resource/document/noaa-climate-ecosystems-and-fisheries-initiative-fact-sheet',
-            text='CEFI'
+            link='https://bioecoocean.org/',
+            text='BioEcoOcean project'
             )+
-        "). The goal of the information hub is \n"
+        ". It is still in development and because it was forked from the NOAA CEFI info hub repo" +
+        "there may still be unrelated info in this repo. Big thank you to the contributors who" +
+        "developed the original metadata generators this repo this is based on, their developments there are invaluable for this project! \n"
         )
 
-    mdFile.new_line(
-        '> Build a comprehensive Climate, Ecosystems, and Fisheries Initiative Information Hub to provide easy access'+
-        ' to regional ocean model outputs (high spatial resolution reanalysis, hindcasts, predictions, and projections'+
-        ' optimized for management applications), ecosystem projections, and other information relevant to'+
-        ' climate-informed resource management. \n'
-        )
-
+    mdFile.new_header(level=2, title='How it (will) work')
 
     mdFile.new_line(
-        'The complete list here is mirroring the '+
+        'TThe idea is to submit a new GitHub issue with the "Contribute BioEco Metadata" issue template,'+
+         'fill in the fields, submit, and then a JSON-LD file will be generated for you. The link to that'+
+         'JSON-LD file can then be used to link the metadata to ODIS through the '+
         mdFile.new_inline_link(
-            link='https://psl.noaa.gov/data/fisheries/',
-            text='CEFI related resource search tool'
+            link='https://catalogue.odis.org/',
+            text='ODIS Catalgoue of Sources'
             )+
-        '. Through the search tool, users can apply filter and search text to narrow down the list based on the related topics. \n')
+        '. Metadata entered in this template will focus more on project metadata rather than dataset specific metadata, which will be associated with datasets published to'+
+          mdFile.new_inline_link(
+            link='https://obis.org/',
+            text='OBIS'
+            )+
+        '.  \n')
 
     mdFile.new_line('We welcome external contribution to this list. Please read the `CONTRIBUTION.md` before submitting suggestion. Thank you! \n')
 
 
     # include the list
-    mdFile.new_header(level=2, title='Mirroring list')
+    mdFile.new_header(level=2, title='List of BioEco Programs')
 
-    for cefi_list in data['lists']:
-        mdFile.new_line(mdFile.new_inline_link(link=cefi_list['url'], text=cefi_list['title'])+' \n')
-        mdFile.new_line('> '+cefi_list['desc'] +'\n')
+    for bioeco_list in data['lists']:
+        mdFile.new_line(mdFile.new_inline_link(link=bioeco_list['url'], text=bioeco_list['title'])+' \n')
+        mdFile.new_line('> '+bioeco_list['desc'] +'\n')
 
     # include the table of content at the top of the file
     mdFile.new_table_of_contents(table_title='Contents', depth=2)
@@ -79,11 +82,11 @@ if __name__ == '__main__':
 
     ###### adding link check badge
     # Read the existing content of readme.md
-    with open('README.md', 'r', encoding='utf-8') as file:
+    with open('README_2.md', 'r', encoding='utf-8') as file:
         existing_content = file.read()
 
     # New line of text to add at the top
-    badge = "![Resource Link Checked](https://github.com/NOAA-CEFI-Portal/CEFI-info-hub-list/actions/workflows/gha_check_link_daily.yml/badge.svg)\n"
+    badge = "![Resource Link Checked](https://github.com/BioEcoOcean/metadata-tracking-dev/actions/workflows/gha_check_link_daily.yml/badge.svg)\n"
 
     # Combine the new line and existing content
     updated_content = badge + existing_content
