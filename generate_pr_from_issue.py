@@ -97,37 +97,6 @@ if __name__ == '__main__' :
     bioeco_data = generate_readme.get_bioeco_list()
     type_list = list(bioeco_data['categories_definition'].keys())
 
-    # download the image file and include in the directory
-    try:
-        img_url = contents[4].split('(')[1][:-1]
-    except IndexError:
-        print('Image name included')
-        src_link = list(filter(lambda item: "src=" in item, contents[4].split()))
-        img_url = src_link[0].split('"')[-2]
-
-
-    img_filename = ""
-    for string in issue['title'].split(']:')[1].strip().lower().split():
-        img_filename += string + "_"
-    img_filename = img_filename[:-1]
-    
-    if img_filename == '':
-        img_filename = f'issue_number_{issue["number"]}'
-
-
-    if not DEBUG :
-        wget = subprocess.call(
-            f'wget -O {img_filename}.png {img_url}',
-            shell=True,
-            executable="/usr/bin/bash"
-        )
-
-        mv = subprocess.call(
-            f'mv {img_filename}.png images/{img_filename}.png',
-            shell=True,
-            executable="/usr/bin/bash"
-        )
-
     # add category type of new entry
     add_dict = {}
     headings = [heading.strip() for heading in headings]
@@ -148,7 +117,6 @@ if __name__ == '__main__' :
         "url" : contents[1],
         "title" : contents[0],
         "desc" : contents[3],
-        "thumbnail" : f"images/{img_filename}.png",	
     }
     new_entry = {**new_entry, **add_dict}
     bioeco_data['lists'].append(new_entry)

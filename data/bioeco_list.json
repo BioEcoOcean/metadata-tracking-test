@@ -17,7 +17,7 @@
             "11": "Microbe biomass and diversity",
             "12": "Invertebrate abundance and distribution"
         },
-        "eovs": {
+        "eovs-other": {
             "name": "Other EOVs",
             "0": "None",
             "1": "Sea state",

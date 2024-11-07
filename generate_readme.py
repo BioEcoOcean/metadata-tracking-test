@@ -30,7 +30,7 @@ if __name__ == '__main__':
     data = get_bioeco_list()
 
     # create markdown file
-    mdFile = MdUtils(file_name='README_2')
+    mdFile = MdUtils(file_name='README')
 
     # start markdown structure
     mdFile.new_header(level=1, title='BioEco resource list')
@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
     ###### adding link check badge
     # Read the existing content of readme.md
-    with open('README_2.md', 'r', encoding='utf-8') as file:
+    with open('README.md', 'r', encoding='utf-8') as file:
         existing_content = file.read()
 
     # New line of text to add at the top
