@@ -166,7 +166,7 @@ body:
   id: spatial-bound
   attributes:
     label: Bounding Box
-    description: To provide a WKT string of points, polygons, and/or line transects, please use this tool: https://obis.org/maptool/#. After populating the map with desired points, click the WKT button from this llink and copy the string into the box below.
+    description: "To provide a WKT string of points, polygons, and/or line transects, please use this tool: https://obis.org/maptool/#. After populating the map with desired points, click the WKT button from this link and copy the string into the box below."
     placeholder: "POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810, 6.25122 57.30872, -1.61499 56.36525))"
   validations:
     required: false
