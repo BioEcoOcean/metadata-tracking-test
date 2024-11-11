@@ -53,7 +53,8 @@ body:
     - 4-CC-BY-NC-SA
     - 5-CC-BY-ND
     - 6-CC-BY-NC-ND
-
+  validations:
+    required: true
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
@@ -161,6 +162,14 @@ body:
     - 9-Southern Ocean
   validations:
     required: true
+- type: input
+  id: spatial-bound
+  attributes:
+    label: Bounding Box
+    description: To provide a WKT string of points, polygons, and/or line transects, please use this tool: https://obis.org/maptool/#. After populating the map with desired points, click the WKT button from this llink and copy the string into the box below.
+    placeholder: "POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810, 6.25122 57.30872, -1.61499 56.36525))"
+  validations:
+    required: false
 - type: dropdown
   id: cplatforms
   attributes:
@@ -239,7 +248,7 @@ body:
     - 43-Fish
     - 44-Marine Plant Variables
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: ctopics
   attributes:
@@ -304,7 +313,7 @@ body:
   id: output-url
   attributes:
     label: URLs for project outputs
-    description: A list of complete URL(s) that leads to a page describing an output, e.g. dataset published to OBIS
+    description: A comma separated list of complete URL(s) leading to pages describing an output, e.g. dataset published to OBIS, a model output hosted on GitHub, etc.
     placeholder: http://ipt.iobis.org/obiscanada/resource?r=nuseds
   validations:
     required: false
