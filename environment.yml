@@ -1,4 +1,4 @@
-name: metadata-tracking-dev
+name: metadata-tracking
 channels:
   - conda-forge
 dependencies:
