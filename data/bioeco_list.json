@@ -1,6 +1,16 @@
 {
     "list_name": "BioEco list",
     "categories_definition": {
+        "license": {
+            "name": "License",
+            "0": "CC0",
+            "1": "CC-BY",
+            "2": "CC-BY-SA",
+            "3": "CC-BY-NC",
+            "4": "CC-BY-NC-SA",
+            "5": "CC-BY-ND",
+            "6": "CC-BY-NC-ND"            
+        },
         "eovs": {
             "name": "BioEco EOVs",
             "0": "None",
@@ -42,15 +52,37 @@
             "20": "Stable carbon isotopes",
             "21": "Dissolved organic carbon"
         },
-        "license": {
-            "name": "License",
-            "0": "CC0",
-            "1": "CC-BY",
-            "2": "CC-BY-SA",
-            "3": "CC-BY-NC",
-            "4": "CC-BY-NC-SA",
-            "5": "CC-BY-ND",
-            "6": "CC-BY-NC-ND"            
+        "cregions": {
+            "name": "Regions",
+            "0": "Global",
+            "1": "Arctic Ocean",
+            "2": "Atlantic Ocean",
+            "3": "Baltic Sea",
+            "4": "High seas",
+            "5": "Indian Ocean",
+            "6": "Mediterranean Sea",
+            "7": "Pacific Ocean",
+            "8": "Southern Africa",
+            "9": "Southern Ocean"
+        },
+        "cplatforms": {
+            "name": "Observing Platforms",
+            "0": "Any",
+            "1": "Buoy",
+            "2": "Platform",
+            "3": "Ship",
+            "4": "Airplane",
+            "5": "Satellite",
+            "6": "Floats",
+            "7": "CTDs",
+            "8": "Saildrone",
+            "9": "Drones",
+            "10": "Gliders",
+            "11": "Radar",
+            "12": "River Gauge",
+            "13": "Stations",
+            "14": "Surface Drifters",
+            "15": "Wave Gliders"
         },
         "cvar": {
             "name": "Variables",
@@ -235,29 +267,6 @@
                 "ocn"
             ]
         },
-        "cproduct": {
-            "name": "Product Types",
-            "0": "Any",
-            "1": "Values: Current",
-            "2": "Values: Historic",
-            "3": "Reanalysis",
-            "4": "Gridded Analysis",
-            "5": "Interactive Plotting Pages",
-            "6": "Forecasts",
-            "7": "Stations",
-            "8": "Animations",
-            "9": "In-situ",
-            "10": "Remote Sensing",
-            "11": "Data Guides/Repositories",
-            "12": "Code Repository",
-            "13": "Index Time-series",
-            "14": "Image/Animation Repository",
-            "15": "Educational",
-            "16": "International Data Repositories",
-            "17": "Analysis Tools",
-            "18": "ERDDAP Installations",
-            "19": "Reports"
-        },
         "ctopics": {
             "name": "Topics",
             "0": "Any",
@@ -283,37 +292,28 @@
             "20": "Resiliency",
             "21": "Algae Blooms"
         },
-        "cplatforms": {
-            "name": "Observing Platforms",
+        "cproduct": {
+            "name": "Product Types",
             "0": "Any",
-            "1": "Buoy",
-            "2": "Platform",
-            "3": "Ship",
-            "4": "Airplane",
-            "5": "Satellite",
-            "6": "Floats",
-            "7": "CTDs",
-            "8": "Saildrone",
-            "9": "Drones",
-            "10": "Gliders",
-            "11": "Radar",
-            "12": "River Gauge",
-            "13": "Stations",
-            "14": "Surface Drifters",
-            "15": "Wave Gliders"
-        },
-        "cregions": {
-            "name": "Regions",
-            "0": "Global",
-            "1": "Arctic Ocean",
-            "2": "Atlantic Ocean",
-            "3": "Baltic Sea",
-            "4": "High seas",
-            "5": "Indian Ocean",
-            "6": "Mediterranean Sea",
-            "7": "Pacific Ocean",
-            "8": "Southern Africa",
-            "9": "Southern Ocean"
+            "1": "Values: Current",
+            "2": "Values: Historic",
+            "3": "Reanalysis",
+            "4": "Gridded Analysis",
+            "5": "Interactive Plotting Pages",
+            "6": "Forecasts",
+            "7": "Stations",
+            "8": "Animations",
+            "9": "In-situ",
+            "10": "Remote Sensing",
+            "11": "Data Guides/Repositories",
+            "12": "Code Repository",
+            "13": "Index Time-series",
+            "14": "Image/Animation Repository",
+            "15": "Educational",
+            "16": "International Data Repositories",
+            "17": "Analysis Tools",
+            "18": "ERDDAP Installations",
+            "19": "Reports"
         }
     },
     "lists": [
