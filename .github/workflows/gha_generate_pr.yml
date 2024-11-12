@@ -3,6 +3,9 @@ on:
   issues:
     types: 
       - labeled
+      - opened
+      - edited
+      - reopened
 
 jobs:
   auto_new_resource_add_pr:
