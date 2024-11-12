@@ -1,4 +1,4 @@
-![Resource Link Checked](https://github.com/BioEcoOcean/metadata-tracking-dev/actions/workflows/gha_check_link_daily.yml/badge.svg)
+![PR Workflow](https://github.com/BioEcoOcean/metadata-tracking-dev/actions/workflows/gha_generate_pr.yml/badge.svg)
 
 # BioEco Metadata Generator
 
