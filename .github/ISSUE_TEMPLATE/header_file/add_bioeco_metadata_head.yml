@@ -53,16 +53,15 @@ body:
     - 4-CC-BY-NC-SA
     - 5-CC-BY-ND
     - 6-CC-BY-NC-ND
-
 - type: markdown
   attributes:
-    value: '# BioEco data/pre-data collection metadata'
+    value: '# EOV data collection metadata'
 - type: markdown
   attributes:
     value: '---'
 - type: markdown
   attributes:
-    value: This section is for recording the project's goals *before* data collection occurs. For each category, there are dropdowns with multiple choices available. You may select all that apply.
+    value: This section is for recording the metadata about the programme's data collection. For each category, there are dropdowns with multiple choices available. You may select all that apply.
 - type: markdown
   attributes:
     value: If no options fit, please select "Any").

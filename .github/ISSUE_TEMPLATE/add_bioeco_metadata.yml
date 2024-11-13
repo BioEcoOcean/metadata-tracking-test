@@ -43,7 +43,7 @@ body:
   id: license
   attributes:
     label: License
-    description: Please select which license you expect the metadata and data to be made available.
+    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the metadata and data to be made available.
     multiple: false
     options:
     - 0-CC0
@@ -63,7 +63,7 @@ body:
     value: '---'
 - type: markdown
   attributes:
-    value: This section is for recording the metadata about data collection. For each category, there are dropdowns with multiple choices available. You may select all that apply.
+    value: This section is for recording the metadata about the programme's data collection. For each category, there are dropdowns with multiple choices available. You may select all that apply.
 - type: markdown
   attributes:
     value: If no options fit, please select "Any").
