@@ -1,8 +1,13 @@
 name: Modify JSON and Create Pull Request
+
 on:
-  issues:
-  #   types: 
-  #     - labeled
+  pull_request:
+  push:
+  
+# on:
+#   issues:
+#     types: 
+#       - labeled
 
 jobs:
   auto_new_resource_add_pr:
