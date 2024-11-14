@@ -18,6 +18,7 @@ The idea is to submit a new GitHub issue with the "Contribute BioEco Metadata" i
 - Temporal scope
 - ...
 
+
 ## Things to do:
 - ensure issue template includes required metadata and aligns with [ODIS EOV example](https://book.odis.org/thematics/variables/index.html)
 - confirm JSON-LD files can be easily updated and doesn't create duplicates (so the link is stable)
