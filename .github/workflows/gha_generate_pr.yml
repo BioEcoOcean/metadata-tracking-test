@@ -1,8 +1,8 @@
 name: Modify JSON and Create Pull Request
 on:
-  issues:
-    types: 
-      - labeled
+  # issues:
+  #   types: 
+  #     - labeled
   workflow_dispatch:
 
 jobs:
