@@ -1,17 +1,13 @@
 name: Modify JSON and Create Pull Request
-
-on:
-  pull_request:
-  push:
   
-# on:
-#   issues:
-#     types: 
-#       - labeled
+on:
+  issues:
+    types: 
+      - labeled
 
 jobs:
   auto_new_resource_add_pr:
-    #if: contains(github.event.issue.labels.*.name, 'auto pr')
+    if: contains(github.event.issue.labels.*.name, 'auto pr')
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repository
