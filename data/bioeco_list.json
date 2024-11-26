@@ -9,7 +9,7 @@
             "3": "CC-BY-NC",
             "4": "CC-BY-NC-SA",
             "5": "CC-BY-ND",
-            "6": "CC-BY-NC-ND"            
+            "6": "CC-BY-NC-ND"
         },
         "eovs": {
             "name": "BioEco EOVs",
@@ -6391,6 +6391,41 @@
                 0,
                 5,
                 14
+            ]
+        },
+        {
+            "url": "https://obis.org/",
+            "title": "Title here",
+            "desc": "Here is a description",
+            "license": [
+                0
+            ],
+            "eovs": [
+                0,
+                1,
+                4
+            ],
+            "eovs-other": [
+                0,
+                4,
+                5
+            ],
+            "cregions": [
+                0,
+                2,
+                5
+            ],
+            "cplatforms": [
+                0
+            ],
+            "cvar": [
+                0
+            ],
+            "ctopics": [
+                0
+            ],
+            "cproduct": [
+                0
             ]
         }
     ]
