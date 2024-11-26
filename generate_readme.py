@@ -36,39 +36,47 @@ if __name__ == '__main__':
     mdFile.new_header(level=1, title='BioEco resource list')
 
     mdFile.new_paragraph(
-        "This repo is a test for generating metadata JSON-LD files for BioEco EOVs within the"+
-        "on the information hub created for the NOAA Climate, Ecosystems, and Fisheries Initiative ("+
+        "This repo is a test for generating metadata JSON-LD files for BioEco EOVs within the "+
         mdFile.new_inline_link(
             link='https://bioecoocean.org/',
-            text='BioEcoOcean project'
+            text='BioEcoOcean'
             )+
-        ". It is still in development and because it was forked from the NOAA CEFI info hub repo" +
-        "there may still be unrelated info in this repo. Big thank you to the contributors who" +
+        "project. It is still in development and because it was forked from the NOAA CEFI info hub repo " +
+        "there may still be unrelated info in this repo. Big thank you to the contributors who " +
         "developed the original metadata generators this repo this is based on, their developments there are invaluable for this project! \n"
         )
 
     mdFile.new_header(level=2, title='How it (will) work')
 
     mdFile.new_line(
-        'TThe idea is to submit a new GitHub issue with the "Contribute BioEco Metadata" issue template,'+
-         'fill in the fields, submit, and then a JSON-LD file will be generated for you. The link to that'+
+        'The idea is to submit a new GitHub issue with the "Contribute BioEco Metadata" issue template, '+
+         'fill in the fields, submit, and then a JSON-LD file will be generated for you. The link to that '+
          'JSON-LD file can then be used to link the metadata to ODIS through the '+
         mdFile.new_inline_link(
             link='https://catalogue.odis.org/',
             text='ODIS Catalgoue of Sources'
             )+
-        '. Metadata entered in this template will focus more on project metadata rather than dataset specific metadata, which will be associated with datasets published to'+
+        '. Metadata entered in this template will focus more on project metadata rather than dataset specific metadata, which will be associated with datasets published to '+
           mdFile.new_inline_link(
             link='https://obis.org/',
             text='OBIS'
             )+
-        '.  \n')
+        '. \n')
 
-    mdFile.new_line('We welcome external contribution to this list. Please read the `CONTRIBUTION.md` before submitting suggestion. Thank you! \n')
-
+    mdFile.new_header(level=3, title='Metadata required')
+    
+    mdFile.new_line('The following information should be included in any metadata file generated to ensure full interoperability and transparency. We encourage the use of controlled vocabulary as much as possible and incorporated places to provide such links in the template. \n'
+                    '- Project details: title, description, links \n'+
+                    '- License \n' +
+                    '- Point of contact(s) \n' +
+                    '- EOV(s) targeted \n' +
+                    '- Methods used \n' +
+                    '- Taxonomic scope \n' +
+                    '- Temporal scope \n' +
+                    '- ... \n')
 
     # include the list
-    mdFile.new_header(level=2, title='List of BioEco Programs')
+    mdFile.new_header(level=2, title='List of EOV Programmes')
 
     for bioeco_list in data['lists']:
         mdFile.new_line(mdFile.new_inline_link(link=bioeco_list['url'], text=bioeco_list['title'])+' \n')
