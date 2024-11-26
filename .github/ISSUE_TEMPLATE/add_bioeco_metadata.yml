@@ -1,20 +1,16 @@
 name: Contribute BioEco metadata
-description: This form is designed for users to easily record, document, and update
-  metdata about BioEco ocean observing projects. Metadata recorded here will flow
-  to the GOOS BioEco Portal and ODIS.
+description: This form is designed for users to easily record, document, and update metdata about BioEco ocean observing projects. Metadata recorded here will flow to the GOOS BioEco Portal and ODIS.
 title: '[Add new BioEco metadata record]: '
 assignees:
 - EliLawrence
 body:
 - type: markdown
   attributes:
-    value: Thanks for taking the time to contribute your BioEco metadata. Your contributions
-      help enhance our global understanding of ocean observations.
+    value: Thanks for taking the time to contribute your BioEco metadata. Your contributions help enhance our global understanding of ocean observations.
 - type: input
   id: project-name
   attributes:
-    label: What is the name of the project or institution that will generate BioEco
-      data?
+    label: What is the name of the project or institution that will generate BioEco data?
     description: A name or title that best summarizes the project.
     placeholder: BioEcoOcean
   validations:
@@ -31,8 +27,7 @@ body:
   id: contact
   attributes:
     label: Point of Contact
-    description: Who is the best person (or organization) that someone can get in
-      touch with if more info is needed?
+    description: Who is the best person (or organization) that someone can get in touch with if more info is needed?
     placeholder: ex. email@example.com
   validations:
     required: true
@@ -41,16 +36,14 @@ body:
   attributes:
     label: Briefly describe the purposes and/or goals of the project.
     description: This description can be provided as an abstract.
-    placeholder: A short abstract describing the project's purpose, goals, taxonomic
-      and temporal extent,
+    placeholder: A short abstract describing the project's purpose, goals, taxonomic and temporal extent,
   validations:
     required: false
 - type: dropdown
   id: license
   attributes:
     label: License
-    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/)
-      you expect the metadata and data to be made available.
+    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the metadata and data to be made available.
     multiple: false
     options:
     - 0-CC0
@@ -70,31 +63,15 @@ body:
     value: '---'
 - type: markdown
   attributes:
-    value: This section is for recording the metadata about the programme's data collection.
-      For each category, there are dropdowns with multiple choices available. You
-      may select all that apply.
+    value: This section is for recording the metadata about the programme's data collection. For each category, there are dropdowns with multiple choices available. You may select all that apply.
 - type: markdown
   attributes:
     value: If no options fit, please select "Any").
 - type: dropdown
-  id: license
-  attributes:
-    label: License
-    multiple: true
-    options:
-    - 0-CC0
-    - 1-CC-BY
-    - 2-CC-BY-SA
-    - 3-CC-BY-NC
-    - 4-CC-BY-NC-SA
-    - 5-CC-BY-ND
-    - 6-CC-BY-NC-ND
-  validations:
-    required: true
-- type: dropdown
   id: eovs
   attributes:
     label: BioEco EOVs
+    description: Select all relevant Biological and/or Ecosystem EOVs that the project aims to measure.
     multiple: true
     options:
     - 0-None
@@ -116,6 +93,7 @@ body:
   id: eovs-other
   attributes:
     label: Other EOVs
+    description: Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary EOVs
     multiple: true
     options:
     - 0-None
@@ -142,10 +120,34 @@ body:
     - 21-Dissolved organic carbon
   validations:
     required: true
+- type: input
+  id: sops
+  attributes:
+    label: Standard Operating Procedures (SOPs)
+    description: Please describe and/or link to SOPs that will be used to measure the EOV(s). 
+  validations:
+    required: true
+- type: input
+  id: start_date
+  attributes:
+    label: Start Date of Temporal Coverage
+    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+  validations:
+      required: true
+- type: input
+  id: end_date
+  attributes:
+    label: End Date of Temporal Coverage
+    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+  validations:
+      required: true
 - type: dropdown
   id: cregions
   attributes:
     label: Regions
+    description: Which region(s) were sampled during the project? Select all that apply.
     multiple: true
     options:
     - 0-Global
@@ -160,10 +162,19 @@ body:
     - 9-Southern Ocean
   validations:
     required: true
+- type: input
+  id: spatial-bound
+  attributes:
+    label: Bounding Box
+    description: "To provide a WKT string of points, polygons, and/or line transects, please use this tool: https://obis.org/maptool/#. After populating the map with desired points, click the WKT button from this link and copy the string into the box below."
+    placeholder: "POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810, 6.25122 57.30872, -1.61499 56.36525))"
+  validations:
+    required: false
 - type: dropdown
   id: cplatforms
   attributes:
     label: Observing Platforms
+    description: What types of Observing Platforms will be used in the project? Select all that apply.
     multiple: true
     options:
     - 0-Any
@@ -183,11 +194,12 @@ body:
     - 14-Surface Drifters
     - 15-Wave Gliders
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: cvar
   attributes:
     label: Variables
+    description: What other variables does this project aim to measure? Select all that apply.
     multiple: true
     options:
     - 0-Any
@@ -236,11 +248,12 @@ body:
     - 43-Fish
     - 44-Marine Plant Variables
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: ctopics
   attributes:
     label: Topics
+    description: Select any topics that are relevant to the project.
     multiple: true
     options:
     - 0-Any
@@ -266,11 +279,12 @@ body:
     - 20-Resiliency
     - 21-Algae Blooms
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: cproduct
   attributes:
     label: Product Types
+    description: Select any product types your observation may relate to.
     multiple: true
     options:
     - 0-Any
@@ -294,4 +308,12 @@ body:
     - 18-ERDDAP Installations
     - 19-Reports
   validations:
-    required: true
+    required: false
+- type: input
+  id: output-url
+  attributes:
+    label: URLs for project outputs
+    description: A comma separated list of complete URL(s) leading to pages describing an output, e.g. dataset published to OBIS, a model output hosted on GitHub, etc.
+    placeholder: http://ipt.iobis.org/obiscanada/resource?r=nuseds
+  validations:
+    required: false
