@@ -77,6 +77,21 @@ body:
   attributes:
     value: If no options fit, please select "Any").
 - type: dropdown
+  id: license
+  attributes:
+    label: License
+    multiple: true
+    options:
+    - 0-CC0
+    - 1-CC-BY
+    - 2-CC-BY-SA
+    - 3-CC-BY-NC
+    - 4-CC-BY-NC-SA
+    - 5-CC-BY-ND
+    - 6-CC-BY-NC-ND
+  validations:
+    required: true
+- type: dropdown
   id: eovs
   attributes:
     label: BioEco EOVs
