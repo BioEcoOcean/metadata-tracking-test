@@ -77,21 +77,6 @@ body:
   attributes:
     value: If no options fit, please select "Any").
 - type: dropdown
-  id: license
-  attributes:
-    label: License
-    multiple: true
-    options:
-    - 0-CC0
-    - 1-CC-BY
-    - 2-CC-BY-SA
-    - 3-CC-BY-NC
-    - 4-CC-BY-NC-SA
-    - 5-CC-BY-ND
-    - 6-CC-BY-NC-ND
-  validations:
-    required: true
-- type: dropdown
   id: eovs
   attributes:
     label: BioEco EOVs
@@ -101,7 +86,7 @@ body:
     - 1-Phytoplankton biomass and diversity
     - 2-Zooplankton biomass and diversity
     - 3-Fish abundance and distribution
-    - 4-Marine turtles, birds, mammals abundance and distribution
+    - 4-Marine turtles abundance and distribution
     - 5-Marine birds abundance and distribution
     - 6-Marine mammals abundance and distribution
     - 7-Hard coral cover and composition
