@@ -45,23 +45,45 @@ body:
       and temporal extent,
   validations:
     required: false
-- type: dropdown
-  id: license
+- type: input
+  id: start_date
   attributes:
-    label: License
-    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/)
-      you expect the metadata and data to be made available.
-    multiple: false
-    options:
-    - 0-CC0
-    - 1-CC-BY
-    - 2-CC-BY-SA
-    - 3-CC-BY-NC
-    - 4-CC-BY-NC-SA
-    - 5-CC-BY-ND
-    - 6-CC-BY-NC-ND
+    label: Start Date of Temporal Coverage
+    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+  validations:
+      required: true
+- type: input
+  id: end_date
+  attributes:
+    label: End Date of Temporal Coverage
+    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+  validations:
+      required: true
+- type: input
+  id: sops
+  attributes:
+    label: Standard Operating Procedures (SOPs)
+    description: Please describe and/or link to SOPs that will be used to measure the EOV(s). 
   validations:
     required: true
+- type: input
+  id: output-url
+  attributes:
+    label: URLs for project outputs
+    description: A list of complete URL(s) that leads to a page describing an output, e.g. dataset published to OBIS
+    placeholder: http://ipt.iobis.org/obiscanada/resource?r=nuseds
+  validations:
+    required: false
+- type: textarea
+  id: geo-bounds
+  attributes:
+    label: Bounding Box
+    description: Please provide a WKT string of points, lines and/or polygons that describes the area of the programme/project. The OBIS Maptool (https://obis.org/maptool/) can help generate WKT strings.
+    placeholder: POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810, 6.25122 57.30872, -1.61499 56.36525))
+  validations:
+    required: false
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
@@ -80,7 +102,8 @@ body:
   id: license
   attributes:
     label: License
-    multiple: true
+    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the metadata and data to be made available.
+    multiple: false
     options:
     - 0-CC0
     - 1-CC-BY
@@ -97,7 +120,7 @@ body:
     label: BioEco EOVs
     multiple: true
     options:
-    - 0-None
+    - 0-Any
     - 1-Phytoplankton biomass and diversity
     - 2-Zooplankton biomass and diversity
     - 3-Fish abundance and distribution
@@ -185,113 +208,32 @@ body:
   validations:
     required: true
 - type: dropdown
-  id: cvar
+  id: ebv
   attributes:
-    label: Variables
+    label: Essential Biodiversity Variables
     multiple: true
     options:
     - 0-Any
-    - 1-Sea Surface Temperature (SST)
-    - 2-Sea Level Height
-    - 3-Sea Level Pressure (SLP)
-    - 4-Surface Pressure
-    - 5-Currents
-    - 6-Salinity
-    - 7-Heat Fluxes
-    - 8-Tidal
-    - 9-Chlorphyll
-    - 10-Mixed Layer Depth
-    - 11-Waves
-    - 12-Precipitation
-    - 13-Sea-Ice
-    - 14-Fish
-    - 15-Wind Stress
-    - 16-Evaporation
-    - 17-Potential Temperature
-    - 18-OLR
-    - 19-Upwelling Indices
-    - 20-Surface Temperature
-    - 21-20C Isotherm
-    - 22-Surface Winds
-    - 23-Kelp and Seagrasses
-    - 24-Algal Blooms
-    - 25-Carbon
-    - 26-Bathymetry
-    - 27-Zooplankton
-    - 28-Phytoplankton
-    - 29-Oxygen
-    - 30-Nitrates
-    - 31-Bottom Temperature
-    - 32-Clouds
-    - 33-Heat Content
-    - 34-DNA
-    - 35-Density
-    - 36-Coral
-    - 37-Sea Mammals
-    - 38-Atmosphere Variables
-    - 39-Ocean Surface Variables
-    - 40-Subsurface Ocean Variables
-    - 41-Chemical Variables
-    - 42-Marine Animal Variables
-    - 43-Fish
-    - 44-Marine Plant Variables
-  validations:
-    required: true
-- type: dropdown
-  id: ctopics
-  attributes:
-    label: Topics
-    multiple: true
-    options:
-    - 0-Any
-    - 1-ENSO
-    - 2-MJO
-    - 3-AMOC
-    - 4-PDO
-    - 5-Sea Level
-    - 6-Climate Change
-    - 7-Climate Indices
-    - 8-Extremes
-    - 9-Marine Heatwaves
-    - 10-Arctic
-    - 11-Hurricanes
-    - 12-Air-Sea Interaction
-    - 13-Upwelling
-    - 14-Coastal Processes
-    - 15-Inundation
-    - 16-Economics
-    - 17-Gulf Stream
-    - 18-Wind Energy
-    - 19-Indicators
-    - 20-Resiliency
+    - 1-Genetic composition Genetic diversity
+    - 2-Genetic composition Genetic differentiation
+    - 3-Genetic composition Effective population size
+    - 4-Genetic composition Inbreeding
+    - 5-Species populations Species distributions
+    - 6-Species populations Species abundances
+    - 7-Species traits Morphology
+    - 8-Species traits Physiology
+    - 9-Species traits Phenology
+    - 10-Species traits Movement
+    - 11-Community composition Community abundance
+    - 12-Community composition Taxonomic/phylogenetic diversity
+    - 13-Community composition Trait diversity
+    - 14-Community composition Interaction diversity
+    - 15-Ecosystem functioning Primary productivity
+    - 16-Ecosystem functioning Ecosystem phenology
+    - 17-Ecosystem functioning Ecosystem disturbances
+    - 18-Ecosystem structure Live cover fraction
+    - 19-Ecosystem structure Ecosystem distribution
+    - 20-Ecosystem structure Ecosystem Vertical Profile
     - 21-Algae Blooms
-  validations:
-    required: true
-- type: dropdown
-  id: cproduct
-  attributes:
-    label: Product Types
-    multiple: true
-    options:
-    - 0-Any
-    - '1-Values: Current'
-    - '2-Values: Historic'
-    - 3-Reanalysis
-    - 4-Gridded Analysis
-    - 5-Interactive Plotting Pages
-    - 6-Forecasts
-    - 7-Stations
-    - 8-Animations
-    - 9-In-situ
-    - 10-Remote Sensing
-    - 11-Data Guides/Repositories
-    - 12-Code Repository
-    - 13-Index Time-series
-    - 14-Image/Animation Repository
-    - 15-Educational
-    - 16-International Data Repositories
-    - 17-Analysis Tools
-    - 18-ERDDAP Installations
-    - 19-Reports
   validations:
     required: true

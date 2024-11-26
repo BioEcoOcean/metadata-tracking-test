@@ -1,5 +1,5 @@
 name: header file
-description: This form is designed for users to easily record, document, and update metdata about BioEco ocean observing projects. Metadata recorded here will flow to the GOOS BioEco Portal and ODIS.
+description: This form is designed for users to easily record, document, and update metdata about BioEco ocean observing projects. Metadata recorded here will flow to the GOOS BioEco Portal and ODIS. When you are sure the information recorded is complete, please add the "auto pr" label to the issue so the JSON-LD file will be generated for you.
 title: '[Add new BioEco metadata record]: '
 assignees:
 - EliLawrence
@@ -10,15 +10,15 @@ body:
 - type: input
   id: project-name
   attributes:
-    label: What is the name of the project or institution that will generate BioEco data?
-    description: A name or title that best summarizes the project.
+    label: What is the name of the programme, project, or institution that will generate BioEco data?
+    description: A name or title that best summarizes the programme or project.
     placeholder: BioEcoOcean
   validations:
     required: true
 - type: input
   id: project-url
   attributes:
-    label: What is the URL that links to project?
+    label: What is the URL that links to programme/project?
     description: A complete URL that leads to a page describing the project
     placeholder: https://bioecoocean.org/
   validations:
@@ -39,22 +39,45 @@ body:
     placeholder: A short abstract describing the project's purpose, goals, taxonomic and temporal extent,
   validations:
     required: false
-- type: dropdown
-  id: license
+- type: input
+  id: start_date
   attributes:
-    label: License
-    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the metadata and data to be made available.
-    multiple: false
-    options:
-    - 0-CC0
-    - 1-CC-BY
-    - 2-CC-BY-SA
-    - 3-CC-BY-NC
-    - 4-CC-BY-NC-SA
-    - 5-CC-BY-ND
-    - 6-CC-BY-NC-ND
+    label: Start Date of Temporal Coverage
+    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+  validations:
+      required: true
+- type: input
+  id: end_date
+  attributes:
+    label: End Date of Temporal Coverage
+    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
+    placeholder: "YYYY-MM-DD"
+  validations:
+      required: true
+- type: input
+  id: sops
+  attributes:
+    label: Standard Operating Procedures (SOPs)
+    description: Please describe and/or link to SOPs that will be used to measure the EOV(s). 
   validations:
     required: true
+- type: input
+  id: output-url
+  attributes:
+    label: URLs for project outputs
+    description: A list of complete URL(s) that leads to a page describing an output, e.g. dataset published to OBIS
+    placeholder: http://ipt.iobis.org/obiscanada/resource?r=nuseds
+  validations:
+    required: false
+- type: textarea
+  id: geo-bounds
+  attributes:
+    label: Bounding Box
+    description: Please provide a WKT string of points, lines and/or polygons that describes the area of the programme/project. The OBIS Maptool (https://obis.org/maptool/) can help generate WKT strings.
+    placeholder: POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810, 6.25122 57.30872, -1.61499 56.36525))
+  validations:
+    required: false
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'

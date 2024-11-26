@@ -3,6 +3,7 @@
     "categories_definition": {
         "license": {
             "name": "License",
+            "description": "Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the programme metadata to be made available.",
             "0": "CC0",
             "1": "CC-BY",
             "2": "CC-BY-SA",
@@ -12,8 +13,9 @@
             "6": "CC-BY-NC-ND"            
         },
         "eovs": {
-            "name": "BioEco EOVs",
-            "0": "None",
+            "name": "BioEco EOVs",            
+            "description": "Select the BioEco EOVs that the project aims to measure.",
+            "0": "Any",
             "1": "Phytoplankton biomass and diversity",
             "2": "Zooplankton biomass and diversity",
             "3": "Fish abundance and distribution",
@@ -29,6 +31,7 @@
         },
         "eovs-other": {
             "name": "Other EOVs",
+            "description": "Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary EOVs",
             "0": "None",
             "1": "Sea state",
             "2": "Ocean surface stress",
@@ -37,11 +40,11 @@
             "5": "Sea surface temperature",
             "6": "Subsurface temperature",
             "7": "Surface currents",
-            "8": "Seagrass cover and composition",
-            "9": "Subsurface currents",
-            "10": "Sea surface salinity",
-            "11": "Subsurface salinity",
-            "12": "Ocean surface heat flux",
+            "8": "Subsurface currents",
+            "9": "Sea surface salinity",
+            "10": "Subsurface salinity",
+            "11": "Ocean surface heat flux",
+            "12": "Turbulent diapycnal fluxes",
             "13": "Ocean bottom pressure",
             "14": "Oxygen",
             "15": "Nutrients",
@@ -50,10 +53,13 @@
             "18": "Particulate matter",
             "19": "Nitrous oxide",
             "20": "Stable carbon isotopes",
-            "21": "Dissolved organic carbon"
+            "21": "Dissolved organic carbon",
+            "22": "Ocean colour",
+            "23": "Ocean sound"
         },
         "cregions": {
             "name": "Regions",
+            "description": "Which marine region(s) were sampled during the project? Select all that apply.",
             "0": "Global",
             "1": "Arctic Ocean",
             "2": "Atlantic Ocean",
@@ -67,8 +73,9 @@
         },
         "cplatforms": {
             "name": "Observing Platforms",
+            "description": "What types of Observing Platforms are used in the project? Select all that apply.",
             "0": "Any",
-            "1": "Buoy",
+            "1": "Not applicable",
             "2": "Platform",
             "3": "Ship",
             "4": "Airplane",
@@ -82,238 +89,33 @@
             "12": "River Gauge",
             "13": "Stations",
             "14": "Surface Drifters",
-            "15": "Wave Gliders"
+            "15": "Wave Gliders",
+            "16": "Buoy"
         },
-        "cvar": {
-            "name": "Variables",
-            "0": [
-                "Any",
-                "atm"
-            ],
-            "1": [
-                "Sea Surface Temperature (SST)",
-                "ocn"
-            ],
-            "2": [
-                "Sea Level Height",
-                "ocn"
-            ],
-            "3": [
-                "Sea Level Pressure (SLP)",
-                "ocn"
-            ],
-            "4": [
-                "Surface Pressure",
-                "ocn"
-            ],
-            "5": [
-                "Currents",
-                "ocn"
-            ],
-            "6": [
-                "Salinity",
-                "ocn"
-            ],
-            "7": [
-                "Heat Fluxes",
-                "ocn"
-            ],
-            "8": [
-                "Tidal",
-                "ocn"
-            ],
-            "9": [
-                "Chlorphyll",
-                "ocn"
-            ],
-            "10": [
-                "Mixed Layer Depth",
-                "ocn"
-            ],
-            "11": [
-                "Waves",
-                "ocn"
-            ],
-            "12": [
-                "Precipitation",
-                "atm"
-            ],
-            "13": [
-                "Sea-Ice",
-                "ocn"
-            ],
-            "14": [
-                "Fish",
-                "ocn"
-            ],
-            "15": [
-                "Wind Stress",
-                "ocn"
-            ],
-            "16": [
-                "Evaporation",
-                "atm"
-            ],
-            "17": [
-                "Potential Temperature",
-                "atm"
-            ],
-            "18": [
-                "OLR",
-                "atm"
-            ],
-            "19": [
-                "Upwelling Indices",
-                "ocn"
-            ],
-            "20": [
-                "Surface Temperature",
-                "ocn"
-            ],
-            "21": [
-                "20C Isotherm",
-                "ocn"
-            ],
-            "22": [
-                "Surface Winds",
-                "ocn"
-            ],
-            "23": [
-                "Kelp and Seagrasses",
-                "ocn"
-            ],
-            "24": [
-                "Algal Blooms",
-                "ocn"
-            ],
-            "25": [
-                "Carbon",
-                "ocn"
-            ],
-            "26": [
-                "Bathymetry",
-                "ocn"
-            ],
-            "27": [
-                "Zooplankton",
-                "ocn"
-            ],
-            "28": [
-                "Phytoplankton",
-                "ocn"
-            ],
-            "29": [
-                "Oxygen",
-                "ocn"
-            ],
-            "30": [
-                "Nitrates",
-                "ocn"
-            ],
-            "31": [
-                "Bottom Temperature",
-                "ocn"
-            ],
-            "32": [
-                "Clouds",
-                "atm"
-            ],
-            "33": [
-                "Heat Content",
-                "ocn"
-            ],
-            "34": [
-                "DNA",
-                "ocn"
-            ],
-            "35": [
-                "Density",
-                "ocn"
-            ],
-            "36": [
-                "Coral",
-                "ocn"
-            ],
-            "37": [
-                "Sea Mammals",
-                "ocn"
-            ],
-            "38": [
-                "Atmosphere Variables",
-                "ocn"
-            ],
-            "39": [
-                "Ocean Surface Variables",
-                "ocn"
-            ],
-            "40": [
-                "Subsurface Ocean Variables",
-                "ocn"
-            ],
-            "41": [
-                "Chemical Variables",
-                "ocn"
-            ],
-            "42": [
-                "Marine Animal Variables",
-                "ocn"
-            ],
-            "43": [
-                "Fish",
-                "ocn"
-            ],
-            "44": [
-                "Marine Plant Variables",
-                "ocn"
-            ]
-        },
-        "ctopics": {
-            "name": "Topics",
+        "ebv": {
+            "name": "Essential Biodiversity Variables",
+            "description": "Select all relevant EBVs associated with the programme.",
             "0": "Any",
-            "1": "ENSO",
-            "2": "MJO",
-            "3": "AMOC",
-            "4": "PDO",
-            "5": "Sea Level",
-            "6": "Climate Change",
-            "7": "Climate Indices",
-            "8": "Extremes",
-            "9": "Marine Heatwaves",
-            "10": "Arctic",
-            "11": "Hurricanes",
-            "12": "Air-Sea Interaction",
-            "13": "Upwelling",
-            "14": "Coastal Processes",
-            "15": "Inundation",
-            "16": "Economics",
-            "17": "Gulf Stream",
-            "18": "Wind Energy",
-            "19": "Indicators",
-            "20": "Resiliency",
-            "21": "Algae Blooms"
-        },
-        "cproduct": {
-            "name": "Product Types",
-            "0": "Any",
-            "1": "Values: Current",
-            "2": "Values: Historic",
-            "3": "Reanalysis",
-            "4": "Gridded Analysis",
-            "5": "Interactive Plotting Pages",
-            "6": "Forecasts",
-            "7": "Stations",
-            "8": "Animations",
-            "9": "In-situ",
-            "10": "Remote Sensing",
-            "11": "Data Guides/Repositories",
-            "12": "Code Repository",
-            "13": "Index Time-series",
-            "14": "Image/Animation Repository",
-            "15": "Educational",
-            "16": "International Data Repositories",
-            "17": "Analysis Tools",
-            "18": "ERDDAP Installations",
-            "19": "Reports"
+            "1": "Genetic composition Genetic diversity",
+            "2": "Genetic composition Genetic differentiation",
+            "3": "Genetic composition Effective population size",
+            "4": "Genetic composition Inbreeding",
+            "5": "Species populations Species distributions",
+            "6": "Species populations Species abundances",
+            "7": "Species traits Morphology",
+            "8": "Species traits Physiology",
+            "9": "Species traits Phenology",
+            "10": "Species traits Movement",
+            "11": "Community composition Community abundance",
+            "12": "Community composition Taxonomic/phylogenetic diversity",
+            "13": "Community composition Trait diversity",
+            "14": "Community composition Interaction diversity",
+            "15": "Ecosystem functioning Primary productivity",
+            "16": "Ecosystem functioning Ecosystem phenology",
+            "17": "Ecosystem functioning Ecosystem disturbances",
+            "18": "Ecosystem structure Live cover fraction",
+            "19": "Ecosystem structure Ecosystem distribution",
+            "20": "Ecosystem structure Ecosystem Vertical Profile"
         }
     },
     "lists": [
