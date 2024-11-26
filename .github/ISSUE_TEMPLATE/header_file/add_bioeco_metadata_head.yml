@@ -53,6 +53,8 @@ body:
     - 4-CC-BY-NC-SA
     - 5-CC-BY-ND
     - 6-CC-BY-NC-ND
+  validations:
+    required: true
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
