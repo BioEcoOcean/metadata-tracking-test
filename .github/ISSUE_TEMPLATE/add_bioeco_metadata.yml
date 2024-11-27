@@ -1,7 +1,9 @@
 name: Contribute BioEco metadata
 description: This form is designed for users to easily record, document, and update
   metdata about BioEco ocean observing projects. Metadata recorded here will flow
-  to the GOOS BioEco Portal and ODIS.
+  to the GOOS BioEco Portal and ODIS. When you are sure the information recorded is
+  complete, please add the "auto pr" label to the issue so the JSON-LD file will be
+  generated for you.
 title: '[Add new BioEco metadata record]: '
 assignees:
 - EliLawrence
@@ -13,16 +15,16 @@ body:
 - type: input
   id: project-name
   attributes:
-    label: What is the name of the project or institution that will generate BioEco
-      data?
-    description: A name or title that best summarizes the project.
+    label: What is the name of the programme, project, or institution that will generate
+      BioEco data?
+    description: A name or title that best summarizes the programme or project.
     placeholder: BioEcoOcean
   validations:
     required: true
 - type: input
   id: project-url
   attributes:
-    label: What is the URL that links to project?
+    label: What is the URL that links to programme/project?
     description: A complete URL that leads to a page describing the project
     placeholder: https://bioecoocean.org/
   validations:
@@ -49,30 +51,32 @@ body:
   id: start_date
   attributes:
     label: Start Date of Temporal Coverage
-    description: "Enter the start date of the project's temporal coverage (YYYY-MM-DD)"
-    placeholder: "YYYY-MM-DD"
+    description: Enter the start date of the project's temporal coverage (YYYY-MM-DD)
+    placeholder: YYYY-MM-DD
   validations:
-      required: true
+    required: true
 - type: input
   id: end_date
   attributes:
     label: End Date of Temporal Coverage
-    description: "Enter the end date of the project's temporal coverage (YYYY-MM-DD)"
-    placeholder: "YYYY-MM-DD"
+    description: Enter the end date of the project's temporal coverage (YYYY-MM-DD)
+    placeholder: YYYY-MM-DD
   validations:
-      required: true
+    required: true
 - type: input
   id: sops
   attributes:
     label: Standard Operating Procedures (SOPs)
-    description: Please describe and/or link to SOPs that will be used to measure the EOV(s). 
+    description: Please describe and/or link to SOPs that will be used to measure
+      the EOV(s).
   validations:
     required: true
 - type: input
   id: output-url
   attributes:
     label: URLs for project outputs
-    description: A list of complete URL(s) that leads to a page describing an output, e.g. dataset published to OBIS
+    description: A list of complete URL(s) that leads to a page describing an output,
+      e.g. dataset published to OBIS
     placeholder: http://ipt.iobis.org/obiscanada/resource?r=nuseds
   validations:
     required: false
@@ -80,8 +84,11 @@ body:
   id: geo-bounds
   attributes:
     label: Bounding Box
-    description: Please provide a WKT string of points, lines and/or polygons that describes the area of the programme/project. The OBIS Maptool (https://obis.org/maptool/) can help generate WKT strings.
-    placeholder: POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810, 6.25122 57.30872, -1.61499 56.36525))
+    description: Please provide a WKT string of points, lines and/or polygons that
+      describes the area of the programme/project. The OBIS Maptool (https://obis.org/maptool/)
+      can help generate WKT strings.
+    placeholder: POLYGON ((-1.61499 56.36525, 2.51587 52.46940, 6.67969 54.43810,
+      6.25122 57.30872, -1.61499 56.36525))
   validations:
     required: false
 - type: markdown
@@ -102,138 +109,158 @@ body:
   id: license
   attributes:
     label: License
-    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the metadata and data to be made available.
-    multiple: false
+    description: Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/)
+      you expect the programme metadata to be made available.
+    multiple: true
     options:
-    - 0-CC0
-    - 1-CC-BY
-    - 2-CC-BY-SA
-    - 3-CC-BY-NC
-    - 4-CC-BY-NC-SA
-    - 5-CC-BY-ND
-    - 6-CC-BY-NC-ND
+    - 0-Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/)
+      you expect the programme metadata to be made available.
+    - 1-CC0
+    - 2-CC-BY
+    - 3-CC-BY-SA
+    - 4-CC-BY-NC
+    - 5-CC-BY-NC-SA
+    - 6-CC-BY-ND
+    - 7-CC-BY-NC-ND
   validations:
     required: true
 - type: dropdown
   id: eovs
   attributes:
     label: BioEco EOVs
+    description: Select the BioEco EOVs that the project aims to measure.
     multiple: true
     options:
-    - 0-Any
-    - 1-Phytoplankton biomass and diversity
-    - 2-Zooplankton biomass and diversity
-    - 3-Fish abundance and distribution
-    - 4-Marine turtles abundance and distribution
-    - 5-Marine birds abundance and distribution
-    - 6-Marine mammals abundance and distribution
-    - 7-Hard coral cover and composition
-    - 8-Seagrass cover and composition
-    - 9-Macroalgal canopy cover and composition
-    - 10-Mangrove cover and composition
-    - 11-Microbe biomass and diversity
-    - 12-Invertebrate abundance and distribution
+    - 0-Select the BioEco EOVs that the project aims to measure.
+    - 1-Any
+    - 2-Phytoplankton biomass and diversity
+    - 3-Zooplankton biomass and diversity
+    - 4-Fish abundance and distribution
+    - 5-Marine turtles abundance and distribution
+    - 6-Marine birds abundance and distribution
+    - 7-Marine mammals abundance and distribution
+    - 8-Hard coral cover and composition
+    - 9-Seagrass cover and composition
+    - 10-Macroalgal canopy cover and composition
+    - 11-Mangrove cover and composition
+    - 12-Microbe biomass and diversity
+    - 13-Invertebrate abundance and distribution
   validations:
     required: true
 - type: dropdown
   id: eovs-other
   attributes:
     label: Other EOVs
+    description: Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary
+      EOVs
     multiple: true
     options:
-    - 0-None
-    - 1-Sea state
-    - 2-Ocean surface stress
-    - 3-Sea ice
-    - 4-Sea surface height
-    - 5-Sea surface temperature
-    - 6-Subsurface temperature
-    - 7-Surface currents
-    - 8-Seagrass cover and composition
+    - 0-Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary
+      EOVs
+    - 1-None
+    - 2-Sea state
+    - 3-Ocean surface stress
+    - 4-Sea ice
+    - 5-Sea surface height
+    - 6-Sea surface temperature
+    - 7-Subsurface temperature
+    - 8-Surface currents
     - 9-Subsurface currents
     - 10-Sea surface salinity
     - 11-Subsurface salinity
     - 12-Ocean surface heat flux
-    - 13-Ocean bottom pressure
-    - 14-Oxygen
-    - 15-Nutrients
-    - 16-Inorganic carbon
-    - 17-Transient tracers
-    - 18-Particulate matter
-    - 19-Nitrous oxide
-    - 20-Stable carbon isotopes
-    - 21-Dissolved organic carbon
+    - 13-Turbulent diapycnal fluxes
+    - 14-Ocean bottom pressure
+    - 15-Oxygen
+    - 16-Nutrients
+    - 17-Inorganic carbon
+    - 18-Transient tracers
+    - 19-Particulate matter
+    - 20-Nitrous oxide
+    - 21-Stable carbon isotopes
+    - 22-Dissolved organic carbon
+    - 23-Ocean colour
+    - 24-Ocean sound
   validations:
     required: true
 - type: dropdown
   id: cregions
   attributes:
     label: Regions
+    description: Which marine region(s) were sampled during the project? Select all
+      that apply.
     multiple: true
     options:
-    - 0-Global
-    - 1-Arctic Ocean
-    - 2-Atlantic Ocean
-    - 3-Baltic Sea
-    - 4-High seas
-    - 5-Indian Ocean
-    - 6-Mediterranean Sea
-    - 7-Pacific Ocean
-    - 8-Southern Africa
-    - 9-Southern Ocean
+    - 0-Which marine region(s) were sampled during the project? Select all that apply.
+    - 1-Global
+    - 2-Arctic Ocean
+    - 3-Atlantic Ocean
+    - 4-Baltic Sea
+    - 5-High seas
+    - 6-Indian Ocean
+    - 7-Mediterranean Sea
+    - 8-Pacific Ocean
+    - 9-Southern Africa
+    - 10-Southern Ocean
   validations:
     required: true
 - type: dropdown
   id: cplatforms
   attributes:
     label: Observing Platforms
+    description: What types of Observing Platforms are used in the project? Select
+      all that apply.
     multiple: true
     options:
-    - 0-Any
-    - 1-Buoy
-    - 2-Platform
-    - 3-Ship
-    - 4-Airplane
-    - 5-Satellite
-    - 6-Floats
-    - 7-CTDs
-    - 8-Saildrone
-    - 9-Drones
-    - 10-Gliders
-    - 11-Radar
-    - 12-River Gauge
-    - 13-Stations
-    - 14-Surface Drifters
-    - 15-Wave Gliders
+    - 0-What types of Observing Platforms are used in the project? Select all that
+      apply.
+    - 1-Any
+    - 2-Not applicable
+    - 3-Platform
+    - 4-Ship
+    - 5-Airplane
+    - 6-Satellite
+    - 7-Floats
+    - 8-CTDs
+    - 9-Saildrone
+    - 10-Drones
+    - 11-Gliders
+    - 12-Radar
+    - 13-River Gauge
+    - 14-Stations
+    - 15-Surface Drifters
+    - 16-Wave Gliders
+    - 17-Buoy
   validations:
     required: true
 - type: dropdown
   id: ebv
   attributes:
     label: Essential Biodiversity Variables
+    description: Select all relevant EBVs associated with the programme.
     multiple: true
     options:
-    - 0-Any
-    - 1-Genetic composition Genetic diversity
-    - 2-Genetic composition Genetic differentiation
-    - 3-Genetic composition Effective population size
-    - 4-Genetic composition Inbreeding
-    - 5-Species populations Species distributions
-    - 6-Species populations Species abundances
-    - 7-Species traits Morphology
-    - 8-Species traits Physiology
-    - 9-Species traits Phenology
-    - 10-Species traits Movement
-    - 11-Community composition Community abundance
-    - 12-Community composition Taxonomic/phylogenetic diversity
-    - 13-Community composition Trait diversity
-    - 14-Community composition Interaction diversity
-    - 15-Ecosystem functioning Primary productivity
-    - 16-Ecosystem functioning Ecosystem phenology
-    - 17-Ecosystem functioning Ecosystem disturbances
-    - 18-Ecosystem structure Live cover fraction
-    - 19-Ecosystem structure Ecosystem distribution
-    - 20-Ecosystem structure Ecosystem Vertical Profile
-    - 21-Algae Blooms
+    - 0-Select all relevant EBVs associated with the programme.
+    - 1-Any
+    - 2-Genetic composition Genetic diversity
+    - 3-Genetic composition Genetic differentiation
+    - 4-Genetic composition Effective population size
+    - 5-Genetic composition Inbreeding
+    - 6-Species populations Species distributions
+    - 7-Species populations Species abundances
+    - 8-Species traits Morphology
+    - 9-Species traits Physiology
+    - 10-Species traits Phenology
+    - 11-Species traits Movement
+    - 12-Community composition Community abundance
+    - 13-Community composition Taxonomic/phylogenetic diversity
+    - 14-Community composition Trait diversity
+    - 15-Community composition Interaction diversity
+    - 16-Ecosystem functioning Primary productivity
+    - 17-Ecosystem functioning Ecosystem phenology
+    - 18-Ecosystem functioning Ecosystem disturbances
+    - 19-Ecosystem structure Live cover fraction
+    - 20-Ecosystem structure Ecosystem distribution
+    - 21-Ecosystem structure Ecosystem Vertical Profile
   validations:
     required: true
