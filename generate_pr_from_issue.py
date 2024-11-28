@@ -153,6 +153,7 @@ if __name__ == '__main__' :
     # Sanitize the title to make it safe for file naming
     safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_')
     file_name = f"jsonFiles/{safe_title}.json"
+    os.makedirs("jsonFiles", exist_ok=True)
     with open(file_name, "w", encoding="utf-8") as output_json:
         json.dump(schema_entry, output_json, indent=4)
 
