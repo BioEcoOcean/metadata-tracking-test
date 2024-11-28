@@ -34,7 +34,7 @@ body:
 - type: input
   id: contact-name
   attributes:
-    label: Point of Contact
+    label: Point of Contact - Name
     description: Who is the best person (or organization) that someone can get in
       touch with if more info is needed?
     placeholder: 'examples: Alex Smith, OBIS Helpdesk'
@@ -43,7 +43,7 @@ body:
 - type: input
   id: contact-url
   attributes:
-    label: Point of Contact
+    label: Point of Contact - Email
     description: How can this contact point be reached?
     placeholder: ex. email@example.com
   validations:
