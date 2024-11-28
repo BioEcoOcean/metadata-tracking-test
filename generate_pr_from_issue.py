@@ -12,6 +12,10 @@ import subprocess
 import json
 import requests
 import generate_readme
+import re
+
+SCHEMA_CONTEXT = "https://schema.org/"
+SCHEMA_TYPE = "Project"
 
 def check_link_availability(test_url):
     """
@@ -110,18 +114,51 @@ if __name__ == '__main__' :
         # always adding 0-Any to all category if not specify by user
         if 0 not in add_dict[ctype]:
             add_dict[ctype] = [0]+add_dict[ctype]
+    
+    # Combine schema.org fields with category types
+    schema_entry = {
+        "@context": SCHEMA_CONTEXT,
+        "@type": SCHEMA_TYPE,
+        "@id": "link-to-json-placeholder",
+        "name": contents[0],
+        "url": contents[1],
+        "license": contents[11],
+        "description": contents[4],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "name": {contents[2]},
+            "email": {contents[3]},
+            "url": "https://www.example-data-repository.org/about-us",
+            "contactType": "customer support"
+                         },
+        "temporalCoverage": f"{contents[5]}/{contents[6]}",
+        "geosparql:hasGeometry": {
+            "@type": "http://www.opengis.net/ont/sf#GeometryCollection",
+            "geosparql:asWKT": {
+            "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+            "@value": {contents[10]} 
+             },
+             "geosparql:crs": {
+            "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+             }},
+        "keywords": {contents[7]},
+        "measurementTechnique": {contents[8]}
+    }
 
     # add new entry related to title, desc, and url etc.
     check_link_availability(contents[1])
-    new_entry = {
-        "url" : contents[1],
-        "title" : contents[0],
-        "desc" : contents[3],
-    }
-    new_entry = {**new_entry, **add_dict}
-    bioeco_data['lists'].append(new_entry)
+    bioeco_data['lists'].append(schema_entry)
+
+    title = contents[0]  # Assuming the first item in contents is the title
+    # Sanitize the title to make it safe for file naming
+    safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_')
+    file_name = f"jsonFiles/{safe_title}.json"
+    with open(file_name, "w", encoding="utf-8") as output_json:
+        json.dump(schema_entry, output_json, indent=4)
+
+    print(f"New JSON-LD file created: {file_name}")
 
     # Save the dictionary as JSON in the file
-    if not DEBUG :
-        with open('data/bioeco_list.json', "w", encoding="utf-8") as output_json:
-            json.dump(bioeco_data, output_json, indent=4)
+    #if not DEBUG :
+     #   with open('data/bioeco_list.json', "w", encoding="utf-8") as output_json:
+      #      json.dump(bioeco_data, output_json, indent=4)
