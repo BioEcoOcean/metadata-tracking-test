@@ -27,10 +27,18 @@ body:
   validations:
     required: true
 - type: input
-  id: contact
+  id: contact-name
   attributes:
     label: Point of Contact
     description: Who is the best person (or organization) that someone can get in touch with if more info is needed?
+    placeholder: 'examples: Alex Smith, OBIS Helpdesk'
+  validations:
+    required: true
+- type: input
+  id: contact-url
+  attributes:
+    label: Point of Contact
+    description: How can this contact point be reached?
     placeholder: ex. email@example.com
   validations:
     required: true
@@ -58,6 +66,14 @@ body:
     placeholder: "YYYY-MM-DD"
   validations:
       required: true
+- type: input
+  id: keywords
+  attributes:
+    label: Keywords
+    description: Please list keywords associated with the programme.
+    placeholder: ex. turtles, abundance
+  validations:
+    required: true
 - type: input
   id: sops
   attributes:
