@@ -1,9 +1,7 @@
 name: Contribute BioEco metadata
 description: This form is designed for users to easily record, document, and update
   metdata about BioEco ocean observing projects. Metadata recorded here will flow
-  to the GOOS BioEco Portal and ODIS. When you are sure the information recorded is
-  complete, please add the "auto pr" label to the issue so the JSON-LD file will be
-  generated for you.
+  to the GOOS BioEco Portal and ODIS.
 title: '[Add new BioEco metadata record]: '
 assignees:
 - EliLawrence
@@ -14,7 +12,8 @@ body:
       help enhance our global understanding of ocean observations.
 - type: markdown
   attributes:
-    value: When you are sure the information recorded is complete, please add the "auto pr" label to the issue so the JSON-LD file will be generated for you.
+    value: When you are sure the information recorded is complete, please add the
+      "auto pr" label to the issue so the JSON-LD file will be generated for you.
 - type: input
   id: project-name
   attributes:
