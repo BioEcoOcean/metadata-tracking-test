@@ -131,8 +131,6 @@ body:
       you expect the programme metadata to be made available.
     multiple: true
     options:
-    - 0-Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/)
-      you expect the programme metadata to be made available.
     - 1-CC0
     - 2-CC-BY
     - 3-CC-BY-SA
@@ -149,7 +147,6 @@ body:
     description: Select the BioEco EOVs that the project aims to measure.
     multiple: true
     options:
-    - 0-Select the BioEco EOVs that the project aims to measure.
     - 1-Any
     - 2-Phytoplankton biomass and diversity
     - 3-Zooplankton biomass and diversity
@@ -173,8 +170,6 @@ body:
       EOVs
     multiple: true
     options:
-    - 0-Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary
-      EOVs
     - 1-None
     - 2-Sea state
     - 3-Ocean surface stress
@@ -209,7 +204,6 @@ body:
       that apply.
     multiple: true
     options:
-    - 0-Which marine region(s) were sampled during the project? Select all that apply.
     - 1-Global
     - 2-Arctic Ocean
     - 3-Atlantic Ocean
@@ -230,8 +224,6 @@ body:
       all that apply.
     multiple: true
     options:
-    - 0-What types of Observing Platforms are used in the project? Select all that
-      apply.
     - 1-Any
     - 2-Not applicable
     - 3-Platform
@@ -258,7 +250,6 @@ body:
     description: Select all relevant EBVs associated with the programme.
     multiple: true
     options:
-    - 0-Select all relevant EBVs associated with the programme.
     - 1-Any
     - 2-Genetic composition Genetic diversity
     - 3-Genetic composition Genetic differentiation
