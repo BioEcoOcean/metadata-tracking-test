@@ -31,7 +31,7 @@ for cat in bioeco_data['categories_definition'].keys():
             'label': bioeco_data['categories_definition'][cat]['name'],
             'description': bioeco_data['categories_definition'][cat].get('description', ''),  # Use .get() to avoid KeyError
             'multiple': True,
-            'options': options[1:] # skip key name = 'name'
+            'options': options[2:] # skip key name = 'name'
         },
         'validations': {
             'required': True
