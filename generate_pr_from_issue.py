@@ -150,8 +150,7 @@ if __name__ == '__main__' :
     #bioeco_data['lists'].append(schema_entry)
 
     # Debugging: print schema_entry to ensure correctness
-    print(type(schema_entry))
-    print("Schema entry contents:", json.dumps(schema_entry, indent=4))
+    # print("Schema entry contents:", json.dumps(schema_entry, indent=4))
 
     title = contents[0]  # Assuming the first item in contents is the title
     safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_') # Sanitize the title to make it safe for file naming
