@@ -62,6 +62,11 @@ def parse_issue(body):
 
     return head_list, cont_list
 
+class setEncoder(json.JSONEncoder):
+        def default(self, obj):
+            if isinstance(obj, set):
+                return list(obj)
+            return json.JSONEncoder.default(self, obj)
 
 if __name__ == '__main__' :
     # bioeco metadata list repo location
@@ -150,7 +155,7 @@ if __name__ == '__main__' :
     #bioeco_data['lists'].append(schema_entry)
 
     # Debugging: print schema_entry to ensure correctness
-    # print("Schema entry contents:", json.dumps(schema_entry, indent=4))
+    print("Schema entry contents:", json.dumps(schema_entry, indent=4, cls=setEncoder))
     print(str(schema_entry))
 
     title = contents[0]  # Assuming the first item in contents is the title
@@ -159,7 +164,7 @@ if __name__ == '__main__' :
     os.makedirs("jsonFiles", exist_ok=True)
 
     with open(file_name, "w+", encoding="utf-8") as output_json:
-        json.dump(schema_entry, output_json, indent=4)
+        json.dump(schema_entry, output_json, indent=4, cls=setEncoder)
 
     print(f"New JSON-LD file created: {file_name}")
 
