@@ -147,14 +147,17 @@ if __name__ == '__main__' :
 
     # add new entry related to title, desc, and url etc.
     check_link_availability(contents[1])
-    bioeco_data['lists'].append(schema_entry)
+    #bioeco_data['lists'].append(schema_entry)
+
+    # Debugging: print schema_entry to ensure correctness
+    print("Schema entry contents:", json.dumps(schema_entry, indent=4))
 
     title = contents[0]  # Assuming the first item in contents is the title
-    # Sanitize the title to make it safe for file naming
-    safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_')
+    safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_') # Sanitize the title to make it safe for file naming
     file_name = f"jsonFiles/{safe_title}.json"
     os.makedirs("jsonFiles", exist_ok=True)
-    with open(file_name, "w", encoding="utf-8") as output_json:
+
+    with open(file_name, "w+", encoding="utf-8") as output_json:
         json.dump(schema_entry, output_json, indent=4)
 
     print(f"New JSON-LD file created: {file_name}")
@@ -163,3 +166,22 @@ if __name__ == '__main__' :
     #if not DEBUG :
      #   with open('data/bioeco_list.json', "w", encoding="utf-8") as output_json:
       #      json.dump(bioeco_data, output_json, indent=4)
+
+##note to self to add this loop above so that each category will get added individually
+# for category, selected_ids in add_dict.items():
+#     # Get the name of the category from bioeco_data
+#     category_name = bioeco_data["categories_definition"][category]["name"]
+
+#     # Handle multiple selections
+#     selected_entries = []
+#     for selected_id in selected_ids:
+#         selected_name = bioeco_data[category].get(str(selected_id), "Unknown")
+        
+#         # Construct schema entry for each selected name
+#         schema_entry[category] = schema_entry.get(category, [])
+#         schema_entry[category].append({
+#             "@type": "PropertyValue",
+#             "name": selected_name,
+#             # Assuming propertyID is defined for each entry
+#             "propertyID": f"http://example.com/{category}/{selected_id}"  # Modify with actual URI
+#         })
