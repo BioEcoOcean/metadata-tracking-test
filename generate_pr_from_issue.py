@@ -151,6 +151,7 @@ if __name__ == '__main__' :
 
     # Debugging: print schema_entry to ensure correctness
     # print("Schema entry contents:", json.dumps(schema_entry, indent=4))
+    print(str(schema_entry))
 
     title = contents[0]  # Assuming the first item in contents is the title
     safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_') # Sanitize the title to make it safe for file naming
