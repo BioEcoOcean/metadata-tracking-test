@@ -4,120 +4,514 @@
         "license": {
             "name": "License",
             "description": "Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the programme metadata to be made available.",
-            "0": "CC0",
-            "1": "CC-BY",
-            "2": "CC-BY-SA",
-            "3": "CC-BY-NC",
-            "4": "CC-BY-NC-SA",
-            "5": "CC-BY-ND",
-            "6": "CC-BY-NC-ND"           
+            "options":{
+                "0": {
+                    "name": "(CC0)",
+                    "id": "cc0",
+                    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+                    "related_ids": ["cc-by", "cc-by-sa", "cc-by-nc","cc-by-nc-sa","cc-by-nd","cc-by-nc-nd"]
+                },
+                "1": {
+                    "name": "CC-BY: Creative Commons Attribution 4.0",
+                    "id": "cc-by",
+                    "url": "https://creativecommons.org/licenses/by/4.0/",
+                    "related_ids": ["cc0", "cc-by-sa", "cc-by-nc","cc-by-nc-sa","cc-by-nd","cc-by-nc-nd"]
+                },
+                "2": {
+                    "name": "CC-BY-SA: Creative Commons Attribution Share Alike 4.0 International",
+                    "id": "cc-by-sa",
+                    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                    "related_ids": ["cc0", "cc-by", "cc-by-nc","cc-by-nc-sa","cc-by-nd","cc-by-nc-nd"]
+                },
+                "3": {
+                    "name": "CC-BY-NC: Creative Commons Attribution Non Commercial 4.0 International",
+                    "id": "cc-by-nc",
+                    "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+                    "related_ids": ["cc0", "cc-by", "cc-by-sa", "cc-by-nc-sa","cc-by-nd","cc-by-nc-nd"]
+                },
+                "4": {
+                    "name": "CC-BY-NC-SA: Creative Commons Attribution Non Commercial Share Alike 4.0 International",
+                    "id": "cc-by-nc-sa",
+                    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                    "related_ids": ["cc0", "cc-by", "cc-by-sa", "cc-by-nc","cc-by-nd","cc-by-nc-nd"]
+                },
+                "5": {
+                    "name": "CC-BY-ND: Creative Commons Attribution No Derivatives 4.0 International",
+                    "id": "cc-by-nd",
+                    "url": "https://creativecommons.org/licenses/by-nd/4.0/",
+                    "related_ids": ["cc0", "cc-by", "cc-by-sa", "cc-by-nc","cc-by-nc-sa","cc-by-nc-nd"]
+                },
+                "6": {
+                    "name": "CC-BY-NC-ND: Creative Commons Attribution Non Commercial No Derivatives 4.0 International",
+                    "id": "cc-by-nc-nd",
+                    "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+                    "related_ids": ["cc0", "cc-by", "cc-by-sa", "cc-by-nc","cc-by-nc-sa","cc-by-nd"]
+                }
+            }          
         },
         "eovs": {
             "name": "BioEco EOVs",            
             "description": "Select the BioEco EOVs that the project aims to measure.",
-            "0": "Any",
-            "1": "Phytoplankton biomass and diversity",
-            "2": "Zooplankton biomass and diversity",
-            "3": "Fish abundance and distribution",
-            "4": "Marine turtles abundance and distribution",
-            "5": "Marine birds abundance and distribution",
-            "6": "Marine mammals abundance and distribution",
-            "7": "Hard coral cover and composition",
-            "8": "Seagrass cover and composition",
-            "9": "Macroalgal canopy cover and composition",
-            "10": "Mangrove cover and composition",
-            "11": "Microbe biomass and diversity",
-            "12": "Invertebrate abundance and distribution"
+            "options": {
+                "0": {
+                    "name": "Phytoplankton biomass and diversity",
+                    "id": "phyto",
+                    "propertyID": "https://goosocean.org/document/17507",
+                    "related_ids": ["phyto", "zoo", "fish", "turtle","bird","mammal", "coral","seagrass","macroalgae","mangrove","microbe","invert"]
+                },
+                "1": {
+                    "name": "Zooplankton biomass and diversity",
+                    "id": "zoo",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV057/",
+                    "https://goosocean.org/document/17509"]},
+                "2": {
+                    "name": "Fish abundance and distribution",
+                    "id": "fish",
+                    "propertyID": "https://goosocean.org/document/17510"},
+                "3": {
+                    "name": "Marine turtles abundance and distribution",
+                    "id": "turtle",
+                    "propertyID": "https://goosocean.org/document/17511"},
+                "4": {
+                    "name": "Marine birds abundance and distribution",
+                    "id": "bird",
+                    "propertyID": "https://goosocean.org/document/17511"},
+                "5": {
+                    "name": "Marine mammals abundance and distribution",
+                    "id": "mammal",
+                    "propertyID": "https://goosocean.org/document/17511"},
+                "6": {
+                    "name": "Hard coral cover and composition",
+                    "id": "coral",
+                    "propertyID": "https://goosocean.org/document/17512"},
+                "7": {
+                    "name": "Seagrass cover and composition",
+                    "id": "seagrass",
+                    "propertyID": "https://goosocean.org/document/17513"},
+                "8": {
+                    "name": "Macroalgal canopy cover and composition",
+                    "id": "macroalgae",
+                    "propertyID": "https://goosocean.org/document/17515"},
+                "9": {
+                    "name": "Mangrove cover and composition",
+                    "id": "mangrove",
+                    "propertyID": "https://goosocean.org/document/17514"},
+                "10": {
+                    "name": "Microbe biomass and diversity",
+                    "id": "microbe",
+                    "propertyID": "https://goosocean.org/what-we-do/framework/essential-ocean-variables/"},
+                "11": {
+                    "name": "Invertebrate abundance and distribution",
+                    "id": "invert",
+                    "propertyID": "https://goosocean.org/what-we-do/framework/essential-ocean-variables/"}
+            }
         },
         "eovs-other": {
             "name": "Other EOVs",
             "description": "Select all relevant GOOS Physics, Biogeochemistry, and Cross-disciplinary EOVs",
-            "0": "None",
-            "1": "Sea state",
-            "2": "Ocean surface stress",
-            "3": "Sea ice",
-            "4": "Sea surface height",
-            "5": "Sea surface temperature",
-            "6": "Subsurface temperature",
-            "7": "Surface currents",
-            "8": "Subsurface currents",
-            "9": "Sea surface salinity",
-            "10": "Subsurface salinity",
-            "11": "Ocean surface heat flux",
-            "12": "Turbulent diapycnal fluxes",
-            "13": "Ocean bottom pressure",
-            "14": "Oxygen",
-            "15": "Nutrients",
-            "16": "Inorganic carbon",
-            "17": "Transient tracers",
-            "18": "Particulate matter",
-            "19": "Nitrous oxide",
-            "20": "Stable carbon isotopes",
-            "21": "Dissolved organic carbon",
-            "22": "Ocean colour",
-            "23": "Ocean sound"
+            "options": {
+                "0": {
+                    "name": "None",
+                    "id": "none",
+                    "propertyID": ""
+                },
+                "1": {
+                    "name": "Sea state",
+                    "id": "sea_state",
+                    "propertyID": ["http://purl.obolibrary.org/obo/ENVO_01001374",
+                    "http://vocab.nerc.ac.uk/collection/EXV/current/EXV024/",
+                    "https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/all/11aca777-8a01-42ce-b076-b3059c3d8cae/?gtm_keyword=SEA%20STATE&gtm_scheme=Earth%20Science",
+                    "https://goosocean.org/document/17462"]
+                },
+                "2": {
+                    "name": "Ocean surface stress",
+                    "id": "ocean_surface_stress",
+                    "propertyID": ["http://purl.obolibrary.org/obo/ENVO_01001844",
+                    "https://vocab.nerc.ac.uk/collection/EXV/current/EXV025/",
+                    "https://goosocean.org/document/17463"]
+                },
+                "3": {
+                    "name": "Sea ice",
+                    "id": "sea_ice",
+                    "propertyID": ["http://purl.obolibrary.org/obo/ENVO_00002200",
+                    "https://vocab.nerc.ac.uk/collection/EXV/current/EXV027/",
+                    "https://goosocean.org/document/17464"]
+                },
+                "4": {
+                    "name": "Sea surface height",
+                    "id": "sea_surface_height",
+                    "propertyID": ["http://purl.obolibrary.org/obo/ENVO_01001377",
+                    "https://goosocean.org/document/17465"]
+                },
+                "5": {
+                    "name": "Sea surface temperature",
+                    "id": "sea_surface_temperature",
+                    "propertyID": ["http://purl.obolibrary.org/obo/ENVO_04000002",
+                    "https://vocab.nerc.ac.uk/collection/EXV/current/EXV017/",
+                    "https://goosocean.org/document/17466"]
+                },
+                "6": {
+                    "name": "Subsurface temperature",
+                    "id": "subsurface_temperature",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV018/",
+                    "https://goosocean.org/document/17467"]
+                },
+                "7": {
+                    "name": "Surface currents",
+                    "id": "surface_currents",
+                    "propertyID": ["http://purl.obolibrary.org/obo/ENVO_01000099",
+                    "https://vocab.nerc.ac.uk/collection/EXV/current/EXV021/",
+                    "https://goosocean.org/document/17468"]
+                },
+                "8": {
+                    "name": "Subsurface currents",
+                    "id": "subsurface_currents",
+                    "propertyID": ["http://vocab.nerc.ac.uk/collection/EXV/current/EXV022/",
+                    "http://vocab.nerc.ac.uk/collection/EXV/current/EXV022/",
+                    "https://goosocean.org/document/17469"]
+                },
+                "9": {
+                    "name": "Sea surface salinity",
+                    "id": "sea_surface_salinity",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV019/",
+                    "https://goosocean.org/document/17470"]
+                },
+                "10": {
+                    "name": "Subsurface salinity",
+                    "id": "subsurface_salinity",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV020/",
+                    "https://goosocean.org/document/17471"]
+                },
+                "11": {
+                    "name": "Ocean surface heat flux",
+                    "id": "ocean_surface_heat_flux",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV026/",
+                    "https://goosocean.org/document/17472"]
+                },
+                "12": {
+                    "name": "Turbulent diapycnal fluxes",
+                    "id": "turbulent_diapycnal_fluxes",
+                    "propertyID": "https://goosocean.org/what-we-do/framework/essential-ocean-variables/"
+                },
+                "13": {
+                    "name": "Ocean bottom pressure",
+                    "id": "ocean_bottom_pressure",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV058/",
+                    "https://goosocean.org/document/32488"]
+                },
+                "14": {
+                    "name": "Oxygen",
+                    "id": "oxygen",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV028/",
+                    "https://goosocean.org/document/17473"]
+                },
+                "15": {
+                    "name": "Nutrients",
+                    "id": "nutrients",
+                    "propertyID": ["http://vocab.nerc.ac.uk/collection/EXV/current/EXV029/",
+                    "https://goosocean.org/document/17474"]
+                },
+                "16": {
+                    "name": "Inorganic carbon",
+                    "id": "inorganic_carbon",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV030/",
+                    "https://goosocean.org/document/17475"]
+                },
+                "17": {
+                    "name": "Transient tracers",
+                    "id": "transient_tracers",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV031/",
+                    "https://goosocean.org/document/17476"]
+                },
+                "18": {
+                    "name": "Particulate matter",
+                    "id": "particulate_matter",
+                    "propertyID": ["http://vocab.nerc.ac.uk/collection/P14/current/GVAR0612/",
+                    "https://goosocean.org/document/17477"]
+                },
+                "19": {
+                    "name": "Nitrous oxide",
+                    "id": "nitrous_oxide",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV032/",
+                    "https://goosocean.org/document/17478"]
+                },
+                "20": {
+                    "name": "Stable carbon isotopes",
+                    "id": "stable_carbon_isotopes",
+                    "propertyID": "https://goosocean.org/document/17479"
+                },
+                "21": {
+                    "name": "Dissolved organic carbon",
+                    "id": "dissolved_organic_carbon",
+                    "propertyID": "https://goosocean.org/document/17480"
+                },
+                "22": {
+                    "name": "Ocean colour",
+                    "id": "ocean_colour",
+                    "propertyID": ["https://vocab.nerc.ac.uk/collection/EXV/current/EXV033/",
+                    "https://goosocean.org/document/19959"]
+                },
+                "23": {
+                    "name": "Ocean sound",
+                    "id": "ocean_sound",
+                    "propertyID": "https://goosocean.org/document/22567"
+                    }
+                }
         },
         "cregions": {
             "name": "Regions",
             "description": "Which marine region(s) were sampled during the project? Select all that apply.",
-            "0": "Global",
-            "1": "Arctic Ocean",
-            "2": "Atlantic Ocean",
-            "3": "Baltic Sea",
-            "4": "High seas",
-            "5": "Indian Ocean",
-            "6": "Mediterranean Sea",
-            "7": "Pacific Ocean",
-            "8": "Southern Africa",
-            "9": "Southern Ocean"
+            "options": {
+                "0": {
+                    "name": "Global",
+                    "id": "global",
+                    "propertyID": "http://marineregions.org/mrgid/1901"
+                },
+                "1": {
+                    "name": "Arctic Ocean",
+                    "id": "arctic_ocean",
+                    "propertyID": "http://marineregions.org/mrgid/1906"
+                },
+                "2": {
+                    "name": "Atlantic Ocean",
+                    "id": "atlantic_ocean",
+                    "propertyID": "http://marineregions.org/mrgid/1902"
+                },
+                "3": {
+                    "name": "Baltic Sea",
+                    "id": "baltic_sea",
+                    "propertyID": "http://marineregions.org/mrgid/2401"
+                },
+                "4": {
+                    "name": "High seas",
+                    "id": "high_seas",
+                    "propertyID": "http://marineregions.org/mrgid/63203"
+                },
+                "5": {
+                    "name": "Indian Ocean",
+                    "id": "indian_ocean",
+                    "propertyID": "http://marineregions.org/mrgid/1904"
+                },
+                "6": {
+                    "name": "Mediterranean Sea",
+                    "id": "mediterranean_sea",
+                    "propertyID": "http://marineregions.org/mrgid/4278"
+                },
+                "7": {
+                    "name": "Pacific Ocean",
+                    "id": "pacific_ocean",
+                    "propertyID": "http://marineregions.org/mrgid/1903"
+                },
+                "8": {
+                    "name": "Southern Africa",
+                    "id": "southern_africa",
+                    "propertyID": "http://marineregions.org/mrgid/4331"
+                },
+                "9": {
+                    "name": "Southern Ocean",
+                    "id": "southern_ocean",
+                    "propertyID": "http://marineregions.org/mrgid/1907"
+                }
+            }
         },
         "cplatforms": {
             "name": "Observing Platforms",
             "description": "What types of Observing Platforms are used in the project? Select all that apply.",
-            "0": "Any",
-            "1": "Not applicable",
-            "2": "Platform",
-            "3": "Ship",
-            "4": "Airplane",
-            "5": "Satellite",
-            "6": "Floats",
-            "7": "CTDs",
-            "8": "Saildrone",
-            "9": "Drones",
-            "10": "Gliders",
-            "11": "Radar",
-            "12": "River Gauge",
-            "13": "Stations",
-            "14": "Surface Drifters",
-            "15": "Wave Gliders",
-            "16": "Buoy"
-        },
+            "options": {
+                "0": {
+                    "name": "None",
+                    "id": "none",
+                    "propertyID": ""
+                },
+                "2": {
+                    "name": "Platform",
+                    "id": "platform",
+                    "propertyID": ""
+                },
+                "3": {
+                    "name": "Ship",
+                    "id": "ship",
+                    "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/30/"
+                },
+                "4": {
+                    "name": "Airplane",
+                    "id": "airplane",
+                    "propertyID": "http://vocab.nerc.ac.uk/collection/L06/current/62/"
+                },
+                "5": {
+                    "name": "Satellite",
+                    "id": "satellite",
+                    "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/68/"
+                },
+                "6": {
+                    "name": "Floats",
+                    "id": "floats",
+                    "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/47/"
+                },
+                "7": {
+                    "name": "CTDs",
+                    "id": "ctds",
+                    "propertyID": ""
+                },
+                "8": {
+                    "name": "Saildrone",
+                    "id": "saildrone",
+                    "propertyID": ""
+                },
+                "9": {
+                    "name": "Drones",
+                    "id": "drones",
+                    "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/6D/"
+                },
+                "10": {
+                    "name": "Gliders",
+                    "id": "gliders",
+                    "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/6A/"
+                },
+                "11": {
+                    "name": "Radar",
+                    "id": "radar",
+                    "propertyID": ""
+                },
+                "12": {
+                    "name": "River Gauge",
+                    "id": "river_gauge",
+                    "propertyID": ""
+                },
+                "13": {
+                    "name": "Stations",
+                    "id": "stations",
+                    "propertyID": ""
+                },
+                "14": {
+                    "name": "Surface Drifters",
+                    "id": "surface_drifters",
+                    "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/42/"
+                },
+                "15": {
+                    "name": "Wave Gliders",
+                    "id": "wave_gliders",
+                    "propertyID": "https://goosocean.org/platforms"
+                },
+                "16": {
+                    "name": "Buoy",
+                    "id": "buoy",
+                    "propertyID": ""
+                }
+        }
+    },
         "ebv": {
             "name": "Essential Biodiversity Variables",
             "description": "Select all relevant EBVs associated with the programme.",
-            "0": "Any",
-            "1": "Genetic composition Genetic diversity",
-            "2": "Genetic composition Genetic differentiation",
-            "3": "Genetic composition Effective population size",
-            "4": "Genetic composition Inbreeding",
-            "5": "Species populations Species distributions",
-            "6": "Species populations Species abundances",
-            "7": "Species traits Morphology",
-            "8": "Species traits Physiology",
-            "9": "Species traits Phenology",
-            "10": "Species traits Movement",
-            "11": "Community composition Community abundance",
-            "12": "Community composition Taxonomic/phylogenetic diversity",
-            "13": "Community composition Trait diversity",
-            "14": "Community composition Interaction diversity",
-            "15": "Ecosystem functioning Primary productivity",
-            "16": "Ecosystem functioning Ecosystem phenology",
-            "17": "Ecosystem functioning Ecosystem disturbances",
-            "18": "Ecosystem structure Live cover fraction",
-            "19": "Ecosystem structure Ecosystem distribution",
-            "20": "Ecosystem structure Ecosystem Vertical Profile"
+            "options":{
+                "0": {
+                    "name": "None",
+                    "id": "none",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "1": {
+                    "name": "Genetic composition Genetic diversity",
+                    "id": "genetic_diversity",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "2": {
+                    "name": "Genetic composition Genetic differentiation",
+                    "id": "genetic_differentiation",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "3": {
+                    "name": "Genetic composition Effective population size",
+                    "id": "effective_population_size",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "4": {
+                    "name": "Genetic composition Inbreeding",
+                    "id": "inbreeding",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "5": {
+                    "name": "Species populations Species distributions",
+                    "id": "species_distributions",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "6": {
+                    "name": "Species populations Species abundances",
+                    "id": "species_abundances",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "7": {
+                    "name": "Species traits Morphology",
+                    "id": "morphology",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "8": {
+                    "name": "Species traits Physiology",
+                    "id": "physiology",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "9": {
+                    "name": "Species traits Phenology",
+                    "id": "phenology",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "10": {
+                    "name": "Species traits Movement",
+                    "id": "movement",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "11": {
+                    "name": "Community composition Community abundance",
+                    "id": "community_abundance",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "12": {
+                    "name": "Community composition Taxonomic/phylogenetic diversity",
+                    "id": "taxonomic_phylogenetic_diversity",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "13": {
+                    "name": "Community composition Trait diversity",
+                    "id": "trait_diversity",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "14": {
+                    "name": "Community composition Interaction diversity",
+                    "id": "interaction_diversity",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "15": {
+                    "name": "Ecosystem functioning Primary productivity",
+                    "id": "primary_productivity",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "16": {
+                    "name": "Ecosystem functioning Ecosystem phenology",
+                    "id": "ecosystem_phenology",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "17": {
+                    "name": "Ecosystem functioning Ecosystem disturbances",
+                    "id": "ecosystem_disturbances",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "18": {
+                    "name": "Ecosystem structure Live cover fraction",
+                    "id": "live_cover_fraction",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "19": {
+                    "name": "Ecosystem structure Ecosystem distribution",
+                    "id": "ecosystem_distribution",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                },
+                "20": {
+                    "name": "Ecosystem structure Ecosystem Vertical Profile",
+                    "id": "ecosystem_vertical_profile",
+                    "propertyID": "https://geobon.org/ebvs/what-are-ebvs/"
+                }
         }
-    },
+    }
+},
     "lists": [
         {
             "url": "https://obis.org/",

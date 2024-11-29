@@ -19,22 +19,22 @@ issue_temp_head['name'] = 'Contribute BioEco metadata'
 
 # loop over all categories (variable is skipped at the moment)
 for cat in bioeco_data['categories_definition'].keys():
-    if cat != 'cvar':
-        options = [f"{nt-1}-{text}" for nt,text in enumerate(bioeco_data['categories_definition'][cat].values())]
-    elif cat == 'cvar':
-        options = [f"{nt-1}-{list[0]}" for nt,list in enumerate(bioeco_data['categories_definition'][cat].values())]
+    options = [
+        f"{key}-{value['name']}" 
+        for key, value in bioeco_data['categories_definition'][cat]['options'].items()
+    ]
 
     issue_temp_head['body'].append({
         'type': 'dropdown',
         'id': cat,
         'attributes': {
             'label': bioeco_data['categories_definition'][cat]['name'],
-            'description': bioeco_data['categories_definition'][cat].get('description', ''),  # Use .get() to avoid KeyError
+            'description': bioeco_data['categories_definition'][cat].get('description', ''),
             'multiple': True,
-            'options': options[2:] # skip key name = 'name'
+            'options': options  # Use the extracted options directly
         },
         'validations': {
-            'required': True
+            'required': False
         }
     })
 
