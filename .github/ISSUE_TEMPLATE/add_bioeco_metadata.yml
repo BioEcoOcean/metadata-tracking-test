@@ -131,7 +131,7 @@ body:
       you expect the programme metadata to be made available.
     multiple: true
     options:
-    - 0-(CC0)
+    - '0-CC0: Public Domain'
     - '1-CC-BY: Creative Commons Attribution 4.0'
     - '2-CC-BY-SA: Creative Commons Attribution Share Alike 4.0 International'
     - '3-CC-BY-NC: Creative Commons Attribution Non Commercial 4.0 International'
