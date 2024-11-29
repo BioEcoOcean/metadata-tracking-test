@@ -155,7 +155,7 @@ if __name__ == '__main__' :
 # Populate license
 if 'license' in add_dict:
     selected_license_key = add_dict['license'][0]
-    schema_entry["license"] = bioeco_data['categories_definition']['license']['options'][selected_license_key]["url"]
+    schema_entry["license"] = bioeco_data['categories_definition']['license']['options'][str(selected_license_key)]["url"]
 # Populate spatialCoverage
 if 'cregions' in add_dict:
     schema_entry["spatialCoverage"] = []
