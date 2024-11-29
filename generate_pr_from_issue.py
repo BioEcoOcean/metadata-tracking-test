@@ -14,7 +14,7 @@ import requests
 import generate_readme
 import re
 
-SCHEMA_CONTEXT = "https://schema.org/"
+#SCHEMA_CONTEXT = "{"@vocab": "https://schema.org/", "geosparql": "http://www.opengis.net/ont/geosparql"}"
 SCHEMA_TYPE = "Project"
 
 def check_link_availability(test_url):
@@ -116,26 +116,28 @@ if __name__ == '__main__' :
             option_list = contents[heading_ind].split(',')
             option_num_list = [int(option.split('-')[0]) for option in option_list]
             add_dict[ctype] = option_num_list
+        else:
+            add_dict[ctype] = []
         # always adding 0-Any to all category if not specify by user
         if 0 not in add_dict[ctype]:
             add_dict[ctype] = [0]+add_dict[ctype]
     
     # Combine schema.org fields with category types
     schema_entry = {
-        "@context": SCHEMA_CONTEXT,
-        "@type": SCHEMA_TYPE,
-        "@id": "link-to-json-placeholder",
+        "@context": {
+            "@vocab": "https://schema.org/",
+            "geosparql": "http://www.opengis.net/ont/geosparql#"},
+        "@type": SCHEMA_TYPE, #maybe eventually we could have a dropdown where they choose the Type of resource: project/programme, dataset, etc?
+        "@id": "link-to-json-placeholder", #figure out how to pull the link of where the json file will be
         "name": contents[0],
         "url": contents[1],
-        "license": contents[11],
+        #"license": contents[11],
         "description": contents[4],
         "contactPoint": {
             "@type": "ContactPoint",
             "name": {contents[2]},
-            "email": {contents[3]},
-            "url": "https://www.example-data-repository.org/about-us",
-            "contactType": "customer support"
-                         },
+            "email": {contents[3]}
+            },
         "temporalCoverage": f"{contents[5]}/{contents[6]}",
         "geosparql:hasGeometry": {
             "@type": "http://www.opengis.net/ont/sf#GeometryCollection",
@@ -149,6 +151,45 @@ if __name__ == '__main__' :
         "keywords": {contents[7]},
         "measurementTechnique": {contents[8]}
     }
+
+# Populate license
+if 'license' in add_dict:
+    selected_license_key = add_dict['license'][0]
+    schema_entry["license"] = bioeco_data['categories_definition']['license']['options'][selected_license_key]["url"]
+# Populate spatialCoverage
+if 'cregions' in add_dict:
+    schema_entry["spatialCoverage"] = []
+    for key in add_dict['cregions']:
+        option = bioeco_data['categories_definition']['cregions']['options'][key]
+        schema_entry["spatialCoverage"].append({
+            "@type": "Place",
+            "name": option["name"],
+            "identifier": option.get("id", "")
+        })
+# Populate variableMeasured
+if add_dict.get('eovs') or add_dict.get('eovs-other') or add_dict.get('ebv'):
+    schema_entry["variableMeasured"] = []
+    for cat in ['eovs', 'eovs-other', 'ebv']:
+        if cat in add_dict:
+            for key in add_dict[cat]:
+                option = bioeco_data['categories_definition'][cat]['options'][key]
+                schema_entry["variableMeasured"].append({
+                    "@type": "PropertyValue",
+                    "name": option["name"],
+                    "propertyID": option.get("propertyID", [])
+                })
+# Populate measurementTechnique
+if 'cplatforms' in add_dict:
+    schema_entry["measurementTechnique"] = [
+        {"measurementMethod": contents[8]}
+    ]
+    for key in add_dict['cplatforms']:
+        option = bioeco_data['categories_definition']['cplatforms']['options'][key]
+        schema_entry["measurementTechnique"].append({
+            "@type": "PropertyValue",
+            "name": option["name"],
+            "propertyID": option.get("propertyID", "")
+        })
 
     # add new entry related to title, desc, and url etc.
     check_link_availability(contents[1])
@@ -172,22 +213,3 @@ if __name__ == '__main__' :
     #if not DEBUG :
      #   with open('data/bioeco_list.json', "w", encoding="utf-8") as output_json:
       #      json.dump(bioeco_data, output_json, indent=4)
-
-##note to self to add this loop above so that each category will get added individually
-# for category, selected_ids in add_dict.items():
-#     # Get the name of the category from bioeco_data
-#     category_name = bioeco_data["categories_definition"][category]["name"]
-
-#     # Handle multiple selections
-#     selected_entries = []
-#     for selected_id in selected_ids:
-#         selected_name = bioeco_data[category].get(str(selected_id), "Unknown")
-        
-#         # Construct schema entry for each selected name
-#         schema_entry[category] = schema_entry.get(category, [])
-#         schema_entry[category].append({
-#             "@type": "PropertyValue",
-#             "name": selected_name,
-#             # Assuming propertyID is defined for each entry
-#             "propertyID": f"http://example.com/{category}/{selected_id}"  # Modify with actual URI
-#         })

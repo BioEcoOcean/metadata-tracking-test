@@ -6,7 +6,7 @@
             "description": "Please select which Creative Commons license (https://creativecommons.org/share-your-work/cclicenses/) you expect the programme metadata to be made available.",
             "options":{
                 "0": {
-                    "name": "(CC0)",
+                    "name": "CC0: Public Domain",
                     "id": "cc0",
                     "url": "https://creativecommons.org/publicdomain/zero/1.0/",
                     "related_ids": ["cc-by", "cc-by-sa", "cc-by-nc","cc-by-nc-sa","cc-by-nd","cc-by-nc-nd"]
