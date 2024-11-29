@@ -160,7 +160,7 @@ if 'license' in add_dict:
 if 'cregions' in add_dict:
     schema_entry["spatialCoverage"] = []
     for key in add_dict['cregions']:
-        option = bioeco_data['categories_definition']['cregions']['options'][key]
+        option = bioeco_data['categories_definition']['cregions']['options'][str(key)]
         schema_entry["spatialCoverage"].append({
             "@type": "Place",
             "name": option["name"],
@@ -172,7 +172,7 @@ if add_dict.get('eovs') or add_dict.get('eovs-other') or add_dict.get('ebv'):
     for cat in ['eovs', 'eovs-other', 'ebv']:
         if cat in add_dict:
             for key in add_dict[cat]:
-                option = bioeco_data['categories_definition'][cat]['options'][key]
+                option = bioeco_data['categories_definition'][cat]['options'][str(key)]
                 schema_entry["variableMeasured"].append({
                     "@type": "PropertyValue",
                     "name": option["name"],
@@ -184,7 +184,7 @@ if 'cplatforms' in add_dict:
         {"measurementMethod": contents[8]}
     ]
     for key in add_dict['cplatforms']:
-        option = bioeco_data['categories_definition']['cplatforms']['options'][key]
+        option = bioeco_data['categories_definition']['cplatforms']['options'][str(key)]
         schema_entry["measurementTechnique"].append({
             "@type": "PropertyValue",
             "name": option["name"],
