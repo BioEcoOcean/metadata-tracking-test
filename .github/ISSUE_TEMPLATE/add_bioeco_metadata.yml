@@ -131,15 +131,17 @@ body:
       you expect the programme metadata to be made available.
     multiple: true
     options:
-    - 1-CC0
-    - 2-CC-BY
-    - 3-CC-BY-SA
-    - 4-CC-BY-NC
-    - 5-CC-BY-NC-SA
-    - 6-CC-BY-ND
-    - 7-CC-BY-NC-ND
+    - 0-(CC0)
+    - '1-CC-BY: Creative Commons Attribution 4.0'
+    - '2-CC-BY-SA: Creative Commons Attribution Share Alike 4.0 International'
+    - '3-CC-BY-NC: Creative Commons Attribution Non Commercial 4.0 International'
+    - '4-CC-BY-NC-SA: Creative Commons Attribution Non Commercial Share Alike 4.0
+      International'
+    - '5-CC-BY-ND: Creative Commons Attribution No Derivatives 4.0 International'
+    - '6-CC-BY-NC-ND: Creative Commons Attribution Non Commercial No Derivatives 4.0
+      International'
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: eovs
   attributes:
@@ -147,21 +149,20 @@ body:
     description: Select the BioEco EOVs that the project aims to measure.
     multiple: true
     options:
-    - 1-Any
-    - 2-Phytoplankton biomass and diversity
-    - 3-Zooplankton biomass and diversity
-    - 4-Fish abundance and distribution
-    - 5-Marine turtles abundance and distribution
-    - 6-Marine birds abundance and distribution
-    - 7-Marine mammals abundance and distribution
-    - 8-Hard coral cover and composition
-    - 9-Seagrass cover and composition
-    - 10-Macroalgal canopy cover and composition
-    - 11-Mangrove cover and composition
-    - 12-Microbe biomass and diversity
-    - 13-Invertebrate abundance and distribution
+    - 0-Phytoplankton biomass and diversity
+    - 1-Zooplankton biomass and diversity
+    - 2-Fish abundance and distribution
+    - 3-Marine turtles abundance and distribution
+    - 4-Marine birds abundance and distribution
+    - 5-Marine mammals abundance and distribution
+    - 6-Hard coral cover and composition
+    - 7-Seagrass cover and composition
+    - 8-Macroalgal canopy cover and composition
+    - 9-Mangrove cover and composition
+    - 10-Microbe biomass and diversity
+    - 11-Invertebrate abundance and distribution
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: eovs-other
   attributes:
@@ -170,32 +171,32 @@ body:
       EOVs
     multiple: true
     options:
-    - 1-None
-    - 2-Sea state
-    - 3-Ocean surface stress
-    - 4-Sea ice
-    - 5-Sea surface height
-    - 6-Sea surface temperature
-    - 7-Subsurface temperature
-    - 8-Surface currents
-    - 9-Subsurface currents
-    - 10-Sea surface salinity
-    - 11-Subsurface salinity
-    - 12-Ocean surface heat flux
-    - 13-Turbulent diapycnal fluxes
-    - 14-Ocean bottom pressure
-    - 15-Oxygen
-    - 16-Nutrients
-    - 17-Inorganic carbon
-    - 18-Transient tracers
-    - 19-Particulate matter
-    - 20-Nitrous oxide
-    - 21-Stable carbon isotopes
-    - 22-Dissolved organic carbon
-    - 23-Ocean colour
-    - 24-Ocean sound
+    - 0-None
+    - 1-Sea state
+    - 2-Ocean surface stress
+    - 3-Sea ice
+    - 4-Sea surface height
+    - 5-Sea surface temperature
+    - 6-Subsurface temperature
+    - 7-Surface currents
+    - 8-Subsurface currents
+    - 9-Sea surface salinity
+    - 10-Subsurface salinity
+    - 11-Ocean surface heat flux
+    - 12-Turbulent diapycnal fluxes
+    - 13-Ocean bottom pressure
+    - 14-Oxygen
+    - 15-Nutrients
+    - 16-Inorganic carbon
+    - 17-Transient tracers
+    - 18-Particulate matter
+    - 19-Nitrous oxide
+    - 20-Stable carbon isotopes
+    - 21-Dissolved organic carbon
+    - 22-Ocean colour
+    - 23-Ocean sound
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: cregions
   attributes:
@@ -204,18 +205,18 @@ body:
       that apply.
     multiple: true
     options:
-    - 1-Global
-    - 2-Arctic Ocean
-    - 3-Atlantic Ocean
-    - 4-Baltic Sea
-    - 5-High seas
-    - 6-Indian Ocean
-    - 7-Mediterranean Sea
-    - 8-Pacific Ocean
-    - 9-Southern Africa
-    - 10-Southern Ocean
+    - 0-Global
+    - 1-Arctic Ocean
+    - 2-Atlantic Ocean
+    - 3-Baltic Sea
+    - 4-High seas
+    - 5-Indian Ocean
+    - 6-Mediterranean Sea
+    - 7-Pacific Ocean
+    - 8-Southern Africa
+    - 9-Southern Ocean
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: cplatforms
   attributes:
@@ -224,25 +225,24 @@ body:
       all that apply.
     multiple: true
     options:
-    - 1-Any
-    - 2-Not applicable
-    - 3-Platform
-    - 4-Ship
-    - 5-Airplane
-    - 6-Satellite
-    - 7-Floats
-    - 8-CTDs
-    - 9-Saildrone
-    - 10-Drones
-    - 11-Gliders
-    - 12-Radar
-    - 13-River Gauge
-    - 14-Stations
-    - 15-Surface Drifters
-    - 16-Wave Gliders
-    - 17-Buoy
+    - 0-None
+    - 2-Platform
+    - 3-Ship
+    - 4-Airplane
+    - 5-Satellite
+    - 6-Floats
+    - 7-CTDs
+    - 8-Saildrone
+    - 9-Drones
+    - 10-Gliders
+    - 11-Radar
+    - 12-River Gauge
+    - 13-Stations
+    - 14-Surface Drifters
+    - 15-Wave Gliders
+    - 16-Buoy
   validations:
-    required: true
+    required: false
 - type: dropdown
   id: ebv
   attributes:
@@ -250,26 +250,26 @@ body:
     description: Select all relevant EBVs associated with the programme.
     multiple: true
     options:
-    - 1-Any
-    - 2-Genetic composition Genetic diversity
-    - 3-Genetic composition Genetic differentiation
-    - 4-Genetic composition Effective population size
-    - 5-Genetic composition Inbreeding
-    - 6-Species populations Species distributions
-    - 7-Species populations Species abundances
-    - 8-Species traits Morphology
-    - 9-Species traits Physiology
-    - 10-Species traits Phenology
-    - 11-Species traits Movement
-    - 12-Community composition Community abundance
-    - 13-Community composition Taxonomic/phylogenetic diversity
-    - 14-Community composition Trait diversity
-    - 15-Community composition Interaction diversity
-    - 16-Ecosystem functioning Primary productivity
-    - 17-Ecosystem functioning Ecosystem phenology
-    - 18-Ecosystem functioning Ecosystem disturbances
-    - 19-Ecosystem structure Live cover fraction
-    - 20-Ecosystem structure Ecosystem distribution
-    - 21-Ecosystem structure Ecosystem Vertical Profile
+    - 0-None
+    - 1-Genetic composition Genetic diversity
+    - 2-Genetic composition Genetic differentiation
+    - 3-Genetic composition Effective population size
+    - 4-Genetic composition Inbreeding
+    - 5-Species populations Species distributions
+    - 6-Species populations Species abundances
+    - 7-Species traits Morphology
+    - 8-Species traits Physiology
+    - 9-Species traits Phenology
+    - 10-Species traits Movement
+    - 11-Community composition Community abundance
+    - 12-Community composition Taxonomic/phylogenetic diversity
+    - 13-Community composition Trait diversity
+    - 14-Community composition Interaction diversity
+    - 15-Ecosystem functioning Primary productivity
+    - 16-Ecosystem functioning Ecosystem phenology
+    - 17-Ecosystem functioning Ecosystem disturbances
+    - 18-Ecosystem structure Live cover fraction
+    - 19-Ecosystem structure Ecosystem distribution
+    - 20-Ecosystem structure Ecosystem Vertical Profile
   validations:
-    required: true
+    required: false
