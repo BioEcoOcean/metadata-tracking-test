@@ -226,21 +226,21 @@ body:
     multiple: true
     options:
     - 0-None
-    - 2-Platform
-    - 3-Ship
-    - 4-Airplane
-    - 5-Satellite
-    - 6-Floats
-    - 7-CTDs
-    - 8-Saildrone
-    - 9-Drones
-    - 10-Gliders
-    - 11-Radar
-    - 12-River Gauge
-    - 13-Stations
-    - 14-Surface Drifters
-    - 15-Wave Gliders
-    - 16-Buoy
+    - 1-Platform
+    - 2-Ship
+    - 3-Airplane
+    - 4-Satellite
+    - 5-Floats
+    - 6-CTDs
+    - 7-Saildrone
+    - 8-Drones
+    - 9-Gliders
+    - 10-Radar
+    - 11-River Gauge
+    - 12-Stations
+    - 13-Surface Drifters
+    - 14-Wave Gliders
+    - 15-Buoy
   validations:
     required: false
 - type: dropdown
