@@ -118,9 +118,6 @@ if __name__ == '__main__' :
             add_dict[ctype] = option_num_list
         else:
             add_dict[ctype] = []
-        # always adding 0-Any to all category if not specify by user
-        if 0 not in add_dict[ctype]:
-            add_dict[ctype] = [0]+add_dict[ctype]
     
     # Combine schema.org fields with category types
     schema_entry = {
@@ -151,7 +148,6 @@ if __name__ == '__main__' :
         "keywords": {contents[7]},
         "measurementTechnique": {contents[8]}
     }
-
 # Populate license
 if 'license' in add_dict:
     selected_license_key = add_dict['license'][0]

@@ -323,77 +323,77 @@
                     "id": "none",
                     "propertyID": ""
                 },
-                "2": {
+                "1": {
                     "name": "Platform",
                     "id": "platform",
                     "propertyID": ""
                 },
-                "3": {
+                "2": {
                     "name": "Ship",
                     "id": "ship",
                     "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/30/"
                 },
-                "4": {
+                "3": {
                     "name": "Airplane",
                     "id": "airplane",
                     "propertyID": "http://vocab.nerc.ac.uk/collection/L06/current/62/"
                 },
-                "5": {
+                "4": {
                     "name": "Satellite",
                     "id": "satellite",
                     "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/68/"
                 },
-                "6": {
+                "5": {
                     "name": "Floats",
                     "id": "floats",
                     "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/47/"
                 },
-                "7": {
+                "6": {
                     "name": "CTDs",
                     "id": "ctds",
                     "propertyID": ""
                 },
-                "8": {
+                "7": {
                     "name": "Saildrone",
                     "id": "saildrone",
                     "propertyID": ""
                 },
-                "9": {
+                "8": {
                     "name": "Drones",
                     "id": "drones",
                     "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/6D/"
                 },
-                "10": {
+                "9": {
                     "name": "Gliders",
                     "id": "gliders",
                     "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/6A/"
                 },
-                "11": {
+                "10": {
                     "name": "Radar",
                     "id": "radar",
                     "propertyID": ""
                 },
-                "12": {
+                "11": {
                     "name": "River Gauge",
                     "id": "river_gauge",
                     "propertyID": ""
                 },
-                "13": {
+                "12": {
                     "name": "Stations",
                     "id": "stations",
                     "propertyID": ""
                 },
-                "14": {
+                "13": {
                     "name": "Surface Drifters",
                     "id": "surface_drifters",
                     "propertyID": "https://vocab.nerc.ac.uk/collection/L06/current/42/"
                 },
-                "15": {
+                "14": {
                     "name": "Wave Gliders",
                     "id": "wave_gliders",
                     "propertyID": "https://goosocean.org/platforms"
                 },
-                "16": {
+                "15": {
                     "name": "Buoy",
                     "id": "buoy",
                     "propertyID": ""
