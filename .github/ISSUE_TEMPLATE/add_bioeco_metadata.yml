@@ -273,3 +273,5 @@ body:
     - 20-Ecosystem structure Ecosystem Vertical Profile
   validations:
     required: false
+labels:
+- auto pr
