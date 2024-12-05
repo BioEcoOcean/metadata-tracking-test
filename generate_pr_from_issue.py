@@ -130,7 +130,7 @@ if __name__ == '__main__' :
         "url": contents[1],
         #"license": contents[11],
         "description": contents[4],
-        "contactPoint": {
+        "provider": {
             "@type": "ContactPoint",
             "name": {contents[2]},
             "email": {contents[3]}
@@ -139,15 +139,24 @@ if __name__ == '__main__' :
         "geosparql:hasGeometry": {
             "@type": "http://www.opengis.net/ont/sf#GeometryCollection",
             "geosparql:asWKT": {
-            "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
-            "@value": {contents[10]} 
-             },
+                "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+                "@value": {contents[10]} 
+                },
              "geosparql:crs": {
-            "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
-             }},
-        "keywords": {contents[7]},
-        "measurementTechnique": {contents[8]}
+                 "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+                 }
+            },
+        #"keywords": {contents[7]},
+        "measurementTechnique": {
+            "url": {contents[8]}
+            },
+        "distribtion": {contents[9]}
     }
+# Process keywords from the input
+if len(contents) > 7:  # Assuming keywords are at index 7 in `contents`
+    raw_keywords = contents[7]  # This should be the comma-separated string of keywords
+    processed_keywords = [keyword.strip() for keyword in raw_keywords.split(',')]
+    schema_entry["keywords"] = processed_keywords
 # Populate license
 if 'license' in add_dict:
     selected_license_key = add_dict['license'][0]
@@ -160,7 +169,7 @@ if 'cregions' in add_dict:
         schema_entry["spatialCoverage"].append({
             "@type": "Place",
             "name": option["name"],
-            "identifier": option.get("id", "")
+            "identifier": option.get("propertyID", "")
         })
 # Populate variableMeasured
 if add_dict.get('eovs') or add_dict.get('eovs-other') or add_dict.get('ebv'):
@@ -174,7 +183,7 @@ if add_dict.get('eovs') or add_dict.get('eovs-other') or add_dict.get('ebv'):
                     "name": option["name"],
                     "propertyID": option.get("propertyID", [])
                 })
-# Populate measurementTechnique
+# Populate measurementTechnique (note I'm not sure if this is the best vocab for platform)
 if 'cplatforms' in add_dict:
     schema_entry["measurementTechnique"] = [
         {"measurementMethod": contents[8]}

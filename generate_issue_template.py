@@ -16,6 +16,7 @@ with open(ISSUE_TEMP,'r',encoding='utf8') as f:
 
 # solve the unique name issue in ISSUE_TEMPLATE
 issue_temp_head['name'] = 'Contribute BioEco metadata'
+issue_temp_head['labels'] = ['auto pr']
 
 # loop over all categories (variable is skipped at the moment)
 for cat in bioeco_data['categories_definition'].keys():
