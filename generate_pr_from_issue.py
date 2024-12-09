@@ -214,7 +214,18 @@ if 'cplatforms' in add_dict:
 
     print(f"New JSON-LD file created: {file_name}")
 
-    # Save the dictionary as JSON in the file
-    #if not DEBUG :
-     #   with open('data/bioeco_list.json', "w", encoding="utf-8") as output_json:
-      #      json.dump(bioeco_data, output_json, indent=4)
+## Save some info that can be used to generate the sitemap
+# Directory to save intermediate sitemap data
+os.makedirs("sitemap_data", exist_ok=True)
+
+# Construct sitemap metadata
+sitemap_entry = {
+    "file_name": file_name,  # This is the JSON file name generated earlier
+    "url": f"https://raw.githubusercontent.com/{ORGNAME}/{REPO_NAME}/blob/main/{file_name}",
+    "lastmod": issue["updated_at"][:10],  # Example: '2024-06-10'
+    "changefreq": contents[12],  # Assuming contents[12] holds the update frequency
+}
+
+# Save the sitemap entry
+with open(f"sitemap_data/{safe_title}_sitemap.json", "w", encoding="utf-8") as sitemap_file:
+    json.dump(sitemap_entry, sitemap_file, indent=4)

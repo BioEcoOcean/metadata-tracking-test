@@ -30,6 +30,12 @@ jobs:
       - name: include new resource in README
         shell: bash -l {0}
         run: python generate_readme.py
+      
+      - name: Upload sitemap data
+        uses: actions/upload-artifact@v3
+        with:
+          name: sitemap-data
+          path: sitemap_data/
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7

@@ -21,6 +21,12 @@ jobs:
       with:
         python-version: "3.9"
 
+    - name: Download sitemap data
+      uses: actions/download-artifact@v3
+      with:
+        name: sitemap-data
+        path: sitemap_data/
+      
     - name: Generate sitemap
       run: python generate_sitemap.py
 
