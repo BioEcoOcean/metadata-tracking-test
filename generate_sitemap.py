@@ -51,8 +51,8 @@ def generate_sitemap(json_folder, repo_url, output_file):
     print(f"Sitemap generated: {output_file}")
 
 # Paths and URLs
-JSON_FOLDER = "JsonFiles"  # Folder where JSON files are stored
-REPO_URL = "https://github.com/your-username/your-repo-name"  # Replace with your repo URL
+JSON_FOLDER = "jsonFiles"  # Folder where JSON files are stored
+REPO_URL = "https://github.com/BioEcoOcean/metadata-tracking-dev"  # Replace with your repo URL
 OUTPUT_FILE = "sitemap.xml"
 
 # Generate the sitemap
