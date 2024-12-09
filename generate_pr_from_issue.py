@@ -72,6 +72,7 @@ if __name__ == '__main__' :
     # bioeco metadata list repo location
     ORGNAME = "BioEcoOcean"
     REPO_NAME = "metadata-tracking-dev"
+    BRANCH = "refs/heads/main"
     DEBUG = False
 
     # A token is automatically provided by GitHub Actions
@@ -221,7 +222,7 @@ os.makedirs("sitemap_data", exist_ok=True)
 # Construct sitemap metadata
 sitemap_entry = {
     "file_name": file_name,  # This is the JSON file name generated earlier
-    "url": f"https://raw.githubusercontent.com/{ORGNAME}/{REPO_NAME}/blob/main/{file_name}",
+    "url": f"https://raw.githubusercontent.com/{ORGNAME}/{REPO_NAME}/{BRANCH}/jsonFiles/{file_name}",
     "lastmod": issue["updated_at"][:10],  # Example: '2024-06-10'
     "changefreq": contents[12],  # Assuming contents[12] holds the update frequency
 }

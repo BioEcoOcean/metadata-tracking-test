@@ -5,7 +5,7 @@ from datetime import datetime
 # Define constants
 REPO_ORG = "BioEcoOcean"
 REPO_NAME = "metadata-tracking-dev"
-BRANCH = "refs/heads/main"  # Update branch to include 'refs/heads'
+BRANCH = "refs/heads/main"  
 JSON_FOLDER = "jsonFiles"
 RAW_BASE_URL = f"https://raw.githubusercontent.com/{REPO_ORG}/{REPO_NAME}/{BRANCH}/{JSON_FOLDER}"
 
