@@ -1,9 +1,9 @@
 """
-This is a python script designed to add a PR
-based on the created issues of adding new resources
+This is a python script designed to add a PR based on the created issues of adding a new metadata record
 
-1. include the image to the image folder
-2. modified the bioeco_list.json file with the new entry
+1. create a subfolder for the programme
+2. generate json file(s) based on issue content
+3. create a sitemap that includes links to all generated json files
 
 """
 import os
@@ -13,9 +13,17 @@ import json
 import requests
 import generate_readme
 import re
+import glob
+from datetime import datetime
 
 #SCHEMA_CONTEXT = "{"@vocab": "https://schema.org/", "geosparql": "http://www.opengis.net/ont/geosparql"}"
 SCHEMA_TYPE = "Project"
+REPO_ORG = "BioEcoOcean"
+REPO_NAME = "metadata-tracking-dev"
+BRANCH = "refs/heads/main"  
+JSON_FOLDER = "jsonFiles"
+RAW_BASE_URL = f"https://raw.githubusercontent.com/{REPO_ORG}/{REPO_NAME}/{BRANCH}/{JSON_FOLDER}"
+
 
 def check_link_availability(test_url):
     """
@@ -34,7 +42,7 @@ def check_link_availability(test_url):
 
 def parse_issue(body):
     """
-    The function parse the body of the github issue
+    Parse the body of the github issue
     """
     # read source json file (data type definition)
     ori_bioeco_data = generate_readme.get_bioeco_list()
@@ -62,7 +70,42 @@ def parse_issue(body):
 
     return head_list, cont_list
 
-class setEncoder(json.JSONEncoder):
+def create_sitemap(folder_path, RAW_BASE_URL):
+    """Generate a sitemap for the given folder."""
+    # Folder-specific sitemap file
+    folder_name = os.path.basename(folder_path)
+    sitemap_path = os.path.join(folder_path, "sitemap.xml")
+
+    sitemap_entries = []
+
+    # Loop through all JSON files in the folder
+    for json_file in glob.glob(os.path.join(folder_path, "*.json")):
+        file_name = os.path.basename(json_file)
+        file_url = f"{RAW_BASE_URL}/{folder_name}/{file_name}"  # Folder-based URL
+        last_modified = datetime.fromtimestamp(os.path.getmtime(json_file)).strftime('%Y-%m-%d')
+        
+        changefreq = contents[12] #Directly use the frequency from the issue
+
+        # Construct a sitemap entry
+        sitemap_entry = f"""
+        <url>
+            <loc>{file_url}</loc>
+            <lastmod>{last_modified}</lastmod>
+            <changefreq>{changefreq}</changefreq>
+        </url>
+        """
+        sitemap_entries.append(sitemap_entry.strip())
+    
+    # Write the sitemap.xml
+    with open(sitemap_path, "w", encoding="utf-8") as sitemap_file:
+        sitemap_file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+        sitemap_file.write('<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        sitemap_file.write("\n".join(sitemap_entries))
+        sitemap_file.write('\n</urlset>')
+    
+    print(f"Sitemap generated: {sitemap_path}")
+
+class setEncoder(json.JSONEncoder): #I think this was for debugging, can probably remove
         def default(self, obj):
             if isinstance(obj, set):
                 return list(obj)
@@ -72,7 +115,7 @@ if __name__ == '__main__' :
     # bioeco metadata list repo location
     ORGNAME = "BioEcoOcean"
     REPO_NAME = "metadata-tracking-dev"
-    BRANCH = "refs/heads/main"
+    BRANCH = "main"
     DEBUG = False
 
     # A token is automatically provided by GitHub Actions
@@ -91,7 +134,6 @@ if __name__ == '__main__' :
 
     print(f'issue number: {ISSUE_NUM}' )
     url = f"https://api.github.com/repos/{ORGNAME}/{REPO_NAME}/issues/{ISSUE_NUM}"
-
     response = requests.get(url)
     print(response)
     issue = response.json()
@@ -99,10 +141,14 @@ if __name__ == '__main__' :
 
     # parsing issue
     headings, contents = parse_issue(issue['body'])
-
     if len(headings) != len(contents) :
         sys.exit('Error : there might be mismatching heading and content from issue parsing.')
 
+    # Extract data for folder creation
+    folder_name = re.sub(r'[^\w\-_]', '_', contents[0])
+    folder_path = f"jsonFiles/{folder_name}"
+    os.makedirs(folder_path, exist_ok=True)
+    
     # read source json file (data type definition)
     bioeco_data = generate_readme.get_bioeco_list()
     type_list = list(bioeco_data['categories_definition'].keys())
@@ -126,7 +172,7 @@ if __name__ == '__main__' :
             "@vocab": "https://schema.org/",
             "geosparql": "http://www.opengis.net/ont/geosparql#"},
         "@type": SCHEMA_TYPE, #maybe eventually we could have a dropdown where they choose the Type of resource: project/programme, dataset, etc?
-        "@id": "link-to-json-placeholder", #figure out how to pull the link of where the json file will be
+        "@id": f"{RAW_BASE_URL}/{folder_path}/{folder_name}.json",
         "name": contents[0],
         "url": contents[1],
         #"license": contents[11],
@@ -205,28 +251,24 @@ if 'cplatforms' in add_dict:
     print("Schema entry contents:", json.dumps(schema_entry, indent=4, cls=setEncoder))
     print(str(schema_entry))
 
-    title = contents[0]  # Assuming the first item in contents is the title
-    safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_') # Sanitize the title to make it safe for file naming
-    file_name = f"jsonFiles/{safe_title}.json"
-    os.makedirs("jsonFiles", exist_ok=True)
+#I commented this part out cause I think the below replaces it an dit's not necessary given the rest of the structure above now
+    #title = contents[0]  # Assuming the first item in contents is the title
+    #safe_title = re.sub(r'[^\w\-_\. ]', '_', title).replace(' ', '_') # Sanitize the title to make it safe for file naming
+    #file_name = f"jsonFiles/{safe_title}.json"
+    #os.makedirs("jsonFiles", exist_ok=True)
 
-    with open(file_name, "w+", encoding="utf-8") as output_json:
-        json.dump(schema_entry, output_json, indent=4, cls=setEncoder)
+    #with open(file_name, "w+", encoding="utf-8") as output_json:
+    #    json.dump(schema_entry, output_json, indent=4, cls=setEncoder)
 
-    print(f"New JSON-LD file created: {file_name}")
+    #print(f"New JSON-LD file created: {file_name}")
 
-## Save some info that can be used to generate the sitemap
-# Directory to save intermediate sitemap data
-os.makedirs("sitemap_data", exist_ok=True)
+json_file_path = os.path.join(folder_path, f"{folder_name}.json")
+with open(json_file_path, "w", encoding="utf-8") as json_file:
+        json.dump(schema_entry, json_file, indent=4)
 
-# Construct sitemap metadata
-sitemap_entry = {
-    "file_name": file_name,  # This is the JSON file name generated earlier
-    "url": f"https://raw.githubusercontent.com/{ORGNAME}/{REPO_NAME}/{BRANCH}/jsonFiles/{file_name}",
-    "lastmod": issue["updated_at"][:10],  # Example: '2024-06-10'
-    "changefreq": contents[12],  # Assuming contents[12] holds the update frequency
-}
+print(f"JSON-LD file created: {json_file_path}")
 
-# Save the sitemap entry
-with open(f"sitemap_data/{safe_title}_sitemap.json", "w", encoding="utf-8") as sitemap_file:
-    json.dump(sitemap_entry, sitemap_file, indent=4)
+# Generate sitemap for the folder
+create_sitemap(folder_path, f"{RAW_BASE_URL}")
+
+print("Programme-specific sitemap generated successfully.")
