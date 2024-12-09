@@ -12,7 +12,7 @@ def generate_sitemap(json_folder, repo_url, output_file):
     """
     # Base URL for JSON files on GitHub
     repo_url = "https://github.com/BioEcoOcean/metadata-repo"
-    json_folder = "JsonFiles"
+    json_folder = "jsonFiles"
     base_url = f"{repo_url}/blob/main/{json_folder}"
     
     # Create the root element of the sitemap
