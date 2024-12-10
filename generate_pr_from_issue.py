@@ -105,7 +105,8 @@ def create_sitemap(folder_path, RAW_BASE_URL):
     
     print(f"Sitemap generated: {sitemap_path}")
 
-class setEncoder(json.JSONEncoder): #I think this was for debugging, can probably remove
+# Ensure the sets in the json.dumps can be serialized
+class setEncoder(json.JSONEncoder):
         def default(self, obj):
             if isinstance(obj, set):
                 return list(obj)
@@ -264,7 +265,7 @@ if 'cplatforms' in add_dict:
 
 json_file_path = os.path.join(folder_path, f"{folder_name}.json")
 with open(json_file_path, "w", encoding="utf-8") as json_file:
-        json.dump(schema_entry, json_file, indent=4)
+        json.dump(schema_entry, json_file, indent=4, cls=setEncoder)
 
 print(f"JSON-LD file created: {json_file_path}")
 
