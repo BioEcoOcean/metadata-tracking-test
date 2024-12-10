@@ -1,15 +1,23 @@
-name: Contribute BioEco metadata
-description: This form is designed for users to easily record, document, and update
-  metadata about BioEco ocean observing projects. Metadata recorded here will flow
-  to the GOOS BioEco Portal and ODIS.
-title: '[Add new BioEco metadata record]: '
+name: Update an existing entry
+description: This form is designed for users to easily update an existing metadata entry about a BioEco ocean observing programme.
+title: '[Update existing BioEco metadata record]: '
+labels:
+- update
 assignees:
 - EliLawrence
 body:
 - type: markdown
   attributes:
-    value: Thanks for taking the time to contribute your BioEco metadata. Your contributions
-      help enhance our global understanding of ocean observations.
+    value: Thanks for taking the time to update your BioEco metadata! First please select your existing entry.
+- type: markdown
+    attributes:
+      value: |
+        ### Entry to Update
+        Please select the folder name corresponding to the entry you want to update:
+        <!-- FOLDER_NAMES_PLACEHOLDER -->
+- type: markdown
+  attributes:
+    value: The rest of this form will have all the fields from the first submission. Only fill in the fields you want to update; leave others blank to keep the existing information unchanged. 
 - type: markdown
   attributes:
     value: '# Basic programme metadata'
@@ -21,7 +29,7 @@ body:
     description: A name or title that best summarizes the programme or project.
     placeholder: BioEcoOcean
   validations:
-    required: true
+    required: false
 - type: input
   id: project-url
   attributes:
@@ -29,7 +37,7 @@ body:
     description: A complete URL that leads to a page describing the project
     placeholder: https://bioecoocean.org/
   validations:
-    required: true
+    required: false
 - type: input
   id: contact-name
   attributes:
@@ -38,7 +46,7 @@ body:
       touch with if more info is needed?
     placeholder: 'examples: Alex Smith, OBIS Helpdesk'
   validations:
-    required: true
+    required: false
 - type: input
   id: contact-url
   attributes:
@@ -46,7 +54,7 @@ body:
     description: How can this contact point be reached?
     placeholder: ex. email@example.com
   validations:
-    required: true
+    required: false
 - type: textarea
   id: data-why
   attributes:
@@ -63,7 +71,7 @@ body:
     description: Enter the start date of the project's temporal coverage (YYYY-MM-DD)
     placeholder: YYYY-MM-DD
   validations:
-    required: true
+    required: false
 - type: input
   id: end_date
   attributes:
@@ -71,7 +79,7 @@ body:
     description: Enter the end date of the project's temporal coverage (YYYY-MM-DD)
     placeholder: YYYY-MM-DD
   validations:
-    required: true
+    required: false
 - type: input
   id: keywords
   attributes:
@@ -79,7 +87,7 @@ body:
     description: Please list keywords associated with the programme.
     placeholder: ex. turtles, abundance
   validations:
-    required: true
+    required: false
 - type: input
   id: sops
   attributes:
@@ -87,7 +95,7 @@ body:
     description: Please describe and/or link to SOPs that will be used to measure
       the EOV(s).
   validations:
-    required: true
+    required: false
 - type: input
   id: output-url
   attributes:
@@ -111,8 +119,8 @@ body:
 - type: dropdown
   id: frequency
   attributes:
-    label: Update Frequency
-    description: Select how often you expect to provide updates
+    label: null
+    description: Select how often you expect records in your sitemap to change
     multiple: true
     options:
     - never
@@ -121,8 +129,8 @@ body:
     - weekly
     - daily
     - hourly
-  validations:
-    required: true
+    validations:
+      required: false
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
@@ -287,5 +295,4 @@ body:
     - 20-Ecosystem structure Ecosystem Vertical Profile
   validations:
     required: false
-labels:
-- auto pr
+

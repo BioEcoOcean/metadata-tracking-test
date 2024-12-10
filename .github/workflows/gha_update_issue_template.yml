@@ -1,0 +1,33 @@
+name: Update Issue Template
+
+on:
+  push:
+    paths:
+      - 'jsonFiles/**'
+
+jobs:
+  update-template:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install --upgrade pip
+
+      - name: Update Issue Template
+        run: python scripts/update_issue_template_existingentry.py
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/ISSUE_TEMPLATE/update_existing_entry.md
+          git commit -m "Update issue template with folder names" || echo "No changes to commit"
+          git push
