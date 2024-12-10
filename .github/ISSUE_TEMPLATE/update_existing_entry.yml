@@ -16,7 +16,7 @@ body:
     description: Select the name corresponding to the entry you wish to update.
     multiple: false
     options:
-      - None
+      - None (please submit a new issue instead)
 - type: markdown
   attributes:
     value: The rest of this form will have all the fields from the first submission. Only fill in the fields you want to update; leave others blank to keep the existing information unchanged. 
