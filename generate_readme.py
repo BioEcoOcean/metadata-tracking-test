@@ -50,8 +50,8 @@ if __name__ == '__main__':
 
     mdFile.new_line(
         'The idea is to submit a new GitHub issue with the "Contribute BioEco Metadata" issue template, '+
-         'fill in the fields, submit, and then a JSON-LD file will be generated for you. The link to that '+
-         'JSON-LD file can then be used to link the metadata to ODIS through the '+
+         "fill in the fields, submit, and then JSON-LD files as well as a sitemap will be generated for you in a folder named according to your programme's title. "+
+         "The link to the sitemap file can then be used to link the metadata to ODIS through the "+
         mdFile.new_inline_link(
             link='https://catalogue.odis.org/',
             text='ODIS Catalgoue of Sources'
