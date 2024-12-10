@@ -10,13 +10,13 @@ body:
   attributes:
     value: Thanks for taking the time to update your BioEco metadata! First please select your existing entry.
 - type: dropdown
-    id: project-id
-    attributes:
-      label: Select the name of the existing entry
-      description: Choose the name corresponding to the entry you wish to update.
-      multiple: false
-      options:
-        <!-- FOLDER_NAMES_PLACEHOLDER -->
+  id: project-id
+  attributes:
+    label: Select the name of the existing entry
+    description: Choose the name corresponding to the entry you wish to update.
+    multiple: false
+    options:
+      <!-- FOLDER_NAMES_PLACEHOLDER -->
 - type: markdown
   attributes:
     value: The rest of this form will have all the fields from the first submission. Only fill in the fields you want to update; leave others blank to keep the existing information unchanged. 
