@@ -3,6 +3,6 @@
 <url>
             <loc>https://raw.githubusercontent.com/BioEcoOcean/metadata-tracking-dev/refs/heads/main/jsonFiles/Test_issue/Test_issue.json</loc>
             <lastmod>2024-12-10</lastmod>
-            <changefreq>2-Phytoplankton biomass and diversity, 3-Zooplankton biomass and diversity</changefreq>
+            <changefreq>monthly</changefreq>
         </url>
 </urlset>
