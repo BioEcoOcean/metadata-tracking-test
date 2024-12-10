@@ -32,7 +32,7 @@ jobs:
         run: python generate_readme.py
       
       - name: Upload sitemap data
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sitemap-data
           path: sitemap_data/
