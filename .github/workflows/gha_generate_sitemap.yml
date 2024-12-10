@@ -22,7 +22,7 @@ jobs:
         python-version: "3.9"
 
     - name: Download sitemap data
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: sitemap-data
         path: sitemap_data/
