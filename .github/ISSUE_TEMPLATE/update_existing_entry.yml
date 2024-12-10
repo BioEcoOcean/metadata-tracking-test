@@ -2,7 +2,7 @@ name: Update an existing entry
 description: This form is designed for users to easily update an existing metadata entry about a BioEco ocean observing programme.
 title: '[Update existing BioEco metadata record]: '
 labels:
-- update
+- update-existing
 assignees:
 - EliLawrence
 body:
@@ -121,7 +121,7 @@ body:
 - type: dropdown
   id: frequency
   attributes:
-    label: null
+    label: Update frequency
     description: Select how often you expect records in your sitemap to change
     multiple: true
     options:
