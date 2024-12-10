@@ -9,11 +9,13 @@ body:
 - type: markdown
   attributes:
     value: Thanks for taking the time to update your BioEco metadata! First please select your existing entry.
-- type: markdown
+- type: dropdown
+    id: project-id
     attributes:
-      value: |
-        ### Entry to Update
-        Please select the folder name corresponding to the entry you want to update:
+      label: Select the name of the existing entry
+      description: Choose the name corresponding to the entry you wish to update.
+      multiple: false
+      options:
         <!-- FOLDER_NAMES_PLACEHOLDER -->
 - type: markdown
   attributes:
