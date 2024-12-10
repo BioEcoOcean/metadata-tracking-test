@@ -131,8 +131,8 @@ body:
     - weekly
     - daily
     - hourly
-    validations:
-      required: false
+  validations:
+    required: false
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
