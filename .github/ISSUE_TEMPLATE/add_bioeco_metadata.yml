@@ -111,8 +111,8 @@ body:
 - type: dropdown
   id: frequency
   attributes:
-    label: null
-    description: Select how often you expect records in your sitemap to change
+    label: Update Frequency
+    description: Select how often you expect to provide updates
     multiple: true
     options:
     - never
@@ -121,8 +121,8 @@ body:
     - weekly
     - daily
     - hourly
-    validations:
-      required: true
+  validations:
+    required: true
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
