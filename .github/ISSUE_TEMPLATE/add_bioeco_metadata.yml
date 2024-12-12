@@ -1,6 +1,6 @@
 name: Contribute BioEco metadata
 description: This form is designed for users to easily record, document, and update
-  metadata about BioEco ocean observing projects. Metadata recorded here will flow
+  metdata about BioEco ocean observing projects. Metadata recorded here will flow
   to the GOOS BioEco Portal and ODIS.
 title: '[Add new BioEco metadata record]: '
 assignees:
@@ -111,8 +111,8 @@ body:
 - type: dropdown
   id: frequency
   attributes:
-    label: Update Frequency
-    description: Select how often you expect to provide updates
+    label: null
+    description: Select how often you expect records in your sitemap to change
     multiple: true
     options:
     - never
@@ -121,8 +121,8 @@ body:
     - weekly
     - daily
     - hourly
-  validations:
-    required: true
+    validations:
+      required: true
 - type: markdown
   attributes:
     value: '# EOV data collection metadata'
